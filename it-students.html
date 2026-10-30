@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Proud IT Students | SINET Education</title>
+  <meta name="description" content="SINET Education IT placed students — Software Engineers, Developers, and IT Professionals placed across MNCs and top companies.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       Reset & Base
+    ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #060D1F;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ================================================================
+       Header / Nav
+    ================================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 13, 31, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand img { height: 34px; width: auto; }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #19C5E8;
+      padding: 0.45rem 1rem;
+      border: 1px solid rgba(25,197,232,0.35);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .nav-back:hover {
+      background: rgba(25,197,232,0.1);
+      border-color: #19C5E8;
+    }
+
+    /* ================================================================
+       Hero Banner  — deep navy with geometric blobs
+    ================================================================ */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(135deg, #06101F 0%, #0B1838 45%, #0A1530 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Left & right blob arcs */
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: -180px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(25,197,232,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -140px; right: -200px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(49,94,251,0.15) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* Dot grid pattern left & right (CSS only) */
+    .dot-grid {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 120px;
+      display: grid;
+      grid-template-columns: repeat(5, 8px);
+      gap: 10px;
+      pointer-events: none;
+      opacity: 0.35;
+    }
+    .dot-grid.left  { left: 3%; }
+    .dot-grid.right { right: 3%; }
+    .dot-grid span {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: #19C5E8;
+      display: block;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #19C5E8;
+      background: rgba(25, 197, 232, 0.1);
+      border: 1px solid rgba(25, 197, 232, 0.35);
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow svg { flex-shrink: 0; }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: #FFFFFF;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1rem;
+    }
+    .hero-title .accent { color: #19C5E8; }
+
+    .hero-underline {
+      width: 52px; height: 4px;
+      background: linear-gradient(90deg, #315EFB, #19C5E8);
+      border-radius: 2px;
+      margin: 0 auto 1.25rem auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #A0B3CC;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Stats strip below hero */
+    .stats-strip {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .sn { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: #FFFFFF; display: block; }
+    .stat-item .sl { font-size: 0.75rem; font-weight: 600; color: #19C5E8; letter-spacing: 0.05em; text-transform: uppercase; display: block; margin-top: 0.2rem; }
+
+    /* ================================================================
+       Students Grid Section
+    ================================================================ */
+    .students-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .students-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.25rem 2rem;
+    }
+
+    /* ================================================================
+       Student Card
+    ================================================================ */
+    .student-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2.5rem 1.5rem 2rem;
+      background: linear-gradient(160deg, #0D1A35 0%, #0A1428 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+    }
+    .student-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #19C5E8, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .student-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 56px rgba(25, 197, 232, 0.14), 0 4px 16px rgba(0,0,0,0.4);
+      border-color: rgba(25,197,232,0.3);
+    }
+    .student-card:hover::before { opacity: 1; }
+
+    /* --- Photo with gold laurel wreath --- */
+    .student-photo-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* Outer gold glow ring */
+    .student-photo-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #B8860B 0deg, #FFD700 40deg, #DAA520 80deg,
+        #B8860B 120deg, #FFD700 160deg, #DAA520 200deg,
+        #B8860B 240deg, #FFD700 280deg, #DAA520 320deg,
+        #B8860B 360deg
+      );
+      z-index: 0;
+      filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.7));
+    }
+
+    /* Photo circle */
+    .student-photo {
+      position: absolute;
+      inset: 4px;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 1;
+      border: 3px solid #FFFFFF;
+      background: #1A2740;
+    }
+    .student-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 50%;
+    }
+
+    /* Gold laurel wreath SVG positioned around photo */
+    .laurel-wreath {
+      position: absolute;
+      inset: -18px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ----------------------------------------------------------------
+       Card text
+    ---------------------------------------------------------------- */
+    .student-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .student-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #19C5E8;
+      margin-bottom: 0.45rem;
+    }
+
+    .student-company {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      line-height: 1.45;
+    }
+
+    .card-divider {
+      width: 36px;
+      height: 3px;
+      background: linear-gradient(90deg, #315EFB, #19C5E8);
+      border-radius: 2px;
+      margin: 1rem auto 0 auto;
+    }
+
+    /* ================================================================
+       Footer strip
+    ================================================================ */
+    .page-footer {
+      background: #040A17;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #4A6080;
+    }
+    .page-footer a { color: #19C5E8; }
+
+    /* WhatsApp float */
+    .whatsapp-float-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: transform 0.25s ease;
+    }
+    .whatsapp-float-btn:hover { transform: scale(1.1); }
+
+    /* ================================================================
+       Responsive
+    ================================================================ */
+    @media (max-width: 960px) {
+      .students-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem 1.5rem;
+      }
+      .dot-grid { display: none; }
+      .stats-strip {
+        gap: 2rem 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        padding: 0 1rem;
+      }
+      .nav-inner {
+        height: 56px;
+      }
+      .nav-brand img {
+        height: 28px;
+      }
+      .nav-back {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.75rem;
+      }
+      .hero-banner {
+        padding: 2.75rem 1rem 2.25rem;
+      }
+      .hero-eyebrow {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.85rem;
+        margin-bottom: 0.85rem;
+      }
+      .hero-title {
+        font-size: clamp(1.65rem, 6.5vw, 2.25rem);
+        margin-bottom: 0.65rem;
+      }
+      .hero-underline {
+        margin-bottom: 0.85rem;
+      }
+      .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .stats-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.15rem 0.75rem;
+        padding: 1.15rem 1rem;
+      }
+      .stat-item .sn {
+        font-size: 1.25rem;
+      }
+      .stat-item .sl {
+        font-size: 0.68rem;
+      }
+      .students-section {
+        padding: 2rem 0.75rem 3.5rem;
+        max-width: 100%;
+      }
+      /* 2 student cards in 1 row on mobile */
+      .students-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .student-card {
+        padding: 1.25rem 0.6rem 1rem;
+        border-radius: 14px;
+      }
+      .student-photo-wrapper {
+        width: clamp(75px, 22vw, 95px);
+        height: clamp(75px, 22vw, 95px);
+        margin-bottom: 0.75rem;
+      }
+      .laurel-wreath {
+        inset: -12px;
+      }
+      .student-name {
+        font-size: clamp(0.78rem, 2.5vw, 0.88rem);
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.2rem;
+        line-height: 1.25;
+        word-break: break-word;
+      }
+      .student-role {
+        font-size: clamp(0.7rem, 2.2vw, 0.78rem);
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+      }
+      .student-company {
+        font-size: clamp(0.65rem, 2vw, 0.72rem);
+        line-height: 1.35;
+        color: #94A3B8;
+        word-break: break-word;
+      }
+      .card-divider {
+        width: 24px;
+        height: 2px;
+        margin: 0.6rem auto 0 auto;
+      }
+      .whatsapp-float-btn {
+        bottom: 1rem;
+        right: 1rem;
+      }
+      .whatsapp-float-btn svg {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      .stats-strip {
+        gap: 0.85rem 0.5rem;
+        padding: 0.85rem 0.5rem;
+      }
+      .stat-item .sn {
+        font-size: 1.1rem;
+      }
+      .stat-item .sl {
+        font-size: 0.62rem;
+      }
+      .students-section {
+        padding: 1.5rem 0.5rem 3rem;
+      }
+      .students-grid {
+        gap: 0.65rem 0.5rem;
+      }
+      .student-card {
+        padding: 1rem 0.45rem 0.85rem;
+        border-radius: 12px;
+      }
+      .student-photo-wrapper {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0.6rem;
+      }
+      .laurel-wreath {
+        inset: -9px;
+      }
+      .student-name {
+        font-size: 0.74rem;
+      }
+      .student-role {
+        font-size: 0.68rem;
+      }
+      .student-company {
+        font-size: 0.62rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Header / Navigation
+  ============================================================ -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="course-details.html" class="nav-brand" aria-label="SINET Education Homepage">
+        <img src="images/sinet-white.png" alt="SINET Education">
+      </a>
+      <a href="course-details.html#employed-students" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Back to Placements
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       Hero Banner
+  ============================================================ -->
+  <section class="hero-banner">
+
+    <!-- Dot grids -->
+    <div class="dot-grid left" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="dot-grid right" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Eyebrow pill -->
+    <div class="hero-eyebrow">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      OUR SUCCESS STORIES
+    </div>
+
+    <!-- Title -->
+    <h1 class="hero-title">OUR <span class="accent">PROUD STUDENTS</span></h1>
+    <div class="hero-underline"></div>
+    <p class="hero-subtitle">We salute our students for their achievements!</p>
+
+  </section>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="sn">50+</span>
+      <span class="sl">IT Alumni Placed</span>
+    </div>
+    <div class="stat-item">
+      <span class="sn">MNCs</span>
+      <span class="sl">Wipro, Accenture &amp; More</span>
+    </div>
+    <div class="stat-item">
+      <span class="sn">UAE &amp; India</span>
+      <span class="sl">Global Placements</span>
+    </div>
+    <div class="stat-item">
+      <span class="sn">100%</span>
+      <span class="sl">Placement Support</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Students Grid
+  ============================================================ -->
+  <main class="students-section">
+    <div class="students-grid">
+
+      <!-- Inline SVG laurel wreath reused via symbol -->
+      <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="laurel" viewBox="0 0 180 180">
+          <!-- Simplified gold laurel wreath drawn with arcs -->
+          <g fill="none" stroke-linecap="round">
+            <!-- Left branch leaves -->
+            <ellipse cx="24" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(-30 24 90)"/>
+            <ellipse cx="18" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(-50 18 74)"/>
+            <ellipse cx="20" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(-70 20 58)"/>
+            <ellipse cx="30" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(-90 30 44)"/>
+            <ellipse cx="44" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(-110 44 34)"/>
+            <ellipse cx="61" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(-130 61 26)"/>
+            <!-- Right branch leaves -->
+            <ellipse cx="156" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(30 156 90)"/>
+            <ellipse cx="162" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(50 162 74)"/>
+            <ellipse cx="160" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(70 160 58)"/>
+            <ellipse cx="150" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(90 150 44)"/>
+            <ellipse cx="136" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(110 136 34)"/>
+            <ellipse cx="119" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(130 119 26)"/>
+            <!-- Bottom bow knot -->
+            <ellipse cx="74"  cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(20 74 170)"/>
+            <ellipse cx="90"  cy="172" rx="8"  ry="5" fill="#DAA520"/>
+            <ellipse cx="106" cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(-20 106 170)"/>
+            <!-- Stem arcs -->
+            <path d="M28 100 Q12 130 50 160" stroke="#C8960C" stroke-width="3" fill="none"/>
+            <path d="M152 100 Q168 130 130 160" stroke="#C8960C" stroke-width="3" fill="none"/>
+          </g>
+        </symbol>
+      </svg>
+
+      <!-- ── STUDENT 1 – Jaseena P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Wipro-Ltd-Chennai-Jaseena.png" alt="Jaseena P – Wipro" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Jaseena P</h3>
+        <p class="student-role">Software Engineer</p>
+        <p class="student-company">Wipro Limited, Chennai</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 2 – Noushad P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Accenture-Bangalore-Noushad.png" alt="Noushad P – Accenture" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Noushad P</h3>
+        <p class="student-role">Software Developer</p>
+        <p class="student-company">Accenture Ltd, Bangalore</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 3 – Khalid N ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Nest-Digital-Info Park-Kerala-Khalid.png" alt="Khalid N – Nest Digital" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Khalid N</h3>
+        <p class="student-role">Developer</p>
+        <p class="student-company">Nest Digital, Info Park Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 4 – Ajmal N V ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Panacea-Infosec-Delhi-Muhammed-Ajmal-N.png" alt="Ajmal N V – Panacea Infosec" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ajmal N V</h3>
+        <p class="student-role">Analyst</p>
+        <p class="student-company">Panacea Infosec Pvt Ltd, Delhi</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 5 – Shifa Mohamed ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Retail-Cloud-Cyber-Park-Kerala-Shifa-Muhammed.png" alt="Shifa Mohamed – Retail Cloud" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shifa Mohamed</h3>
+        <p class="student-role">Developer</p>
+        <p class="student-company">Retail Cloud, Cyber Park Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 6 – Pramod M ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Williams-Lea-India-Pvt-Ltd-Chennai-Pramod.png" alt="Pramod M – Williams Lea" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Pramod M</h3>
+        <p class="student-role">EUC Engineer</p>
+        <p class="student-company">Williams Lea Pvt Ltd, Chennai</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 7 – Shahana ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Sadek-Elsevedy-industries-UAE-Shahana.png" alt="Shahana – Sadek Elsevedy" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahana</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">Sadek E Industries, UAE</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 8 – Sujith P R ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-OPT-IT-Solutions-Bangalore-Sujith.png" alt="Sujith P R – OPT IT Solutions" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Sujith P R</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">OPT IT Solutions, Bangalore</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 9 – Jasni P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-irsys-softwrae-Jasni-p.png" alt="Jasni P – IRSYS Tech" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Jasni P</h3>
+        <p class="student-role">Developer</p>
+        <p class="student-company">IRSYS Tech, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 10 – Pranav ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Infolks-pvt-limited-Pranav.png" alt="Pranav – Infolks India" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Pranav</h3>
+        <p class="student-role">NW Admin</p>
+        <p class="student-company">Infolks India</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 11 – Mohammed Suaad ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-AMANCO-Abu-Dhabi-UAE-Suaad.png" alt="Mohammed Suaad – TAMANCO UAE" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Suaad</h3>
+        <p class="student-role">OC Assistant</p>
+        <p class="student-company">TAMANCO, Abu Dhabi, UAE</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 12 – M. Fathima Hanna ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Apex-uae-Fathima-Hanna.png" alt="Fathima Hanna – APEX RAK UAE" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">M. Fathima Hanna</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">APEX RAK, UAE</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 13 – Fathimath Naseera ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-AS-VISION-LLC-Dubai-UAE-Fathimath-Naseera.png" alt="Fathimath Naseera – AS Vision Dubai" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Fathimath Naseera</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">AS VISION LLC, Dubai, UAE</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 14 – Shiyas K V ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-D24-Dubai-uae-Mohammed-Shiyas-KV.png" alt="Shiyas KV – D24 Marketing Dubai" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shiyas K V</h3>
+        <p class="student-role">BD Manager</p>
+        <p class="student-company">D24 Marketing, Dubai</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 15 – Haritha K B ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Iberr-Technology-Kerala-Haritha.png" alt="Haritha KB – Iberr Technology" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Haritha K B</h3>
+        <p class="student-role">SEO Analyst</p>
+        <p class="student-company">Iberr Technology, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 16 – Thasmina C ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Techzera-infologics-Thasmina-C.png" alt="Thasmina C – Techzera InfoLogics" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Thasmina C</h3>
+        <p class="student-role">Software Developer</p>
+        <p class="student-company">Techzera InfoLogics, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 17 – Mohammed Fasil K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-ar-Renova-innovative-cloud-Mohammed-fasil-k.png" alt="Mohammed Fasil K – Renova Cloud" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Fasil K</h3>
+        <p class="student-role">Software Developer</p>
+        <p class="student-company">Renova Innovative Cloud</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 18 – Femina K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Dusseldorf-Germany-Femina.png" alt="Femina K – Dusseldorf Germany" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Femina K</h3>
+        <p class="student-role">Software Trainer</p>
+        <p class="student-company">Dusseldorf, Germany</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 19 – Rashin C K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Global-info-Rashin-CK.png" alt="Rashin CK – Global Info" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Rashin C K</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">Global Info</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 20 – Nishma K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Goodwill-English-School-Kerala-Nishma.png" alt="Nishma K – Goodwill English School" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Nishma K</h3>
+        <p class="student-role">Coding Teacher</p>
+        <p class="student-company">Goodwill English School, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 21 – Aysha Sherin ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-New-India-Assurance-Aysha-Sherin.png" alt="Aysha Sherin – New India Assurance" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Aysha Sherin</h3>
+        <p class="student-role">Tech Assistant</p>
+        <p class="student-company">New India Assurance</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 22 – Shahar Banu ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-GTec-Shahar-Banu.png" alt="Shahar Banu – GTech Kerala" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahar Banu</h3>
+        <p class="student-role">Tech Faculty</p>
+        <p class="student-company">GTech, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 23 – Fazil V ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-at-Infotech-India-Muhammed-fazil-v.png" alt="Fazil V – Info Tech Kerala" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Fazil V</h3>
+        <p class="student-role">Security Engineer</p>
+        <p class="student-company">Info Tech, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 24 – Anshif ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Python-Developer-at-Rainhope-Mohammed-Anshif.png" alt="Anshif – Rain Hopes Kerala" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Anshif</h3>
+        <p class="student-role">Python Developer</p>
+        <p class="student-company">Rain Hopes, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 25 – Ranees Jazil ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Network-Engineer-at-Abate-Hospital-Ranees-Jasil.png" alt="Ranees Jazil – Abate Hospital" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ranees Jazil</h3>
+        <p class="student-role">IT Support Engineer</p>
+        <p class="student-company">Abate, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 26 – Sarath ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-IT-Engineer-at-MES-Medical-Collge-Sarath.png" alt="Sarath – MES Medical College" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Sarath</h3>
+        <p class="student-role">Network Support</p>
+        <p class="student-company">MES Medical College, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 27 – Basil K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-IT-Support-Engineer-at-Abate-Hospital-Basil-K.png" alt="Basil K – Abate Hospital" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Basil K</h3>
+        <p class="student-role">IT Support Engineer</p>
+        <p class="student-company">Abate, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 28 – Safwana Jasmin ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Python-Full-stack-trainer-at-gtec-safwana-jasmin.png" alt="Safwana Jasmin – GTech" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Safwana Jasmin</h3>
+        <p class="student-role">Python FS Faculty</p>
+        <p class="student-company">GTech, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 29 – Rasal Anwar ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-IT-support-NIMS-hospital-Rasal.png" alt="Rasal Anwar – NIMS Kerala" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Rasal Anwar</h3>
+        <p class="student-role">IT Support Engineer</p>
+        <p class="student-company">NIMS, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 30 – Sooraj K M ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-IT-support-NIMS-hospital-Sooraj.png" alt="Sooraj KM – NIMS Kerala" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Sooraj K M</h3>
+        <p class="student-role">IT Support Engineer</p>
+        <p class="student-company">NIMS, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 31 – Ajay K P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Python-Developer-Data-analyst-Ajay-at-Techzera-infologics-Pvt-ltd-Perinthalmanna.png" alt="Ajay KP – Techzera InfoLogics" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ajay K P</h3>
+        <p class="student-role">Python Developer</p>
+        <p class="student-company">Techzera Info Logics Pvt Ltd</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 32 – Sree Raj ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-C-Sharp-Developer-Data-analyst-SreeRaj-at-Briller-SYS-Coimbatore.png" alt="Sree Raj – BrillerSys Coimbatore" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Sree Raj</h3>
+        <p class="student-role">C# Developer</p>
+        <p class="student-company">BrillerSys, Coimbatore</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 33 – Shibily ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-IT-support-at-DoBox-Malappuram-Kerala-Shibily.png" alt="Shibily – DoBox Malappuram" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shibily</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">DoBox, Malappuram, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 34 – Drisya ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-Python-Developer-Data-analyst-Drisya-at-InThings-Pvt-ltd-Perinthalmanna.png" alt="Drisya – InThings Pvt Ltd" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Drisya</h3>
+        <p class="student-role">Python Developer</p>
+        <p class="student-company">InThings Pvt Ltd, Perinthalmanna</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 35 – Ali Akbar ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-IT-support-at-Lulu-Bangalore-Ali-Akbar.png" alt="Ali Akbar – Lulu Bangalore" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ali Akbar</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">Lulu, Bangalore</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 36 – Shamil ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sinet-placed-IT-support-at-RailTel-India-Kerala-Shamil.png" alt="Shamil – RailTel India Kerala" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shamil</h3>
+        <p class="student-role">IT Support</p>
+        <p class="student-company">RailTel India, Kerala</p>
+        <div class="card-divider"></div>
+      </article>
+
+    </div><!-- /.students-grid -->
+  </main>
+
+  <!-- ============================================================
+       Footer
+  ============================================================ -->
+  <footer class="page-footer">
+    <p>&copy; 2026 SINET Education, Perinthalmanna &amp; Manjeri &mdash; <a href="course-details.html">Back to Course Details</a></p>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://api.whatsapp.com/send?phone=918086800700&text=Hello%20SINET!%20I%20want%20to%20know%20about%20IT%20placements" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="whatsapp-float-btn">
+    <svg width="52" height="52" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#25D366"/>
+      <path fill="#fff" d="M34.5 13.5A14.4 14.4 0 0 0 24 9C16.27 9 10 15.27 10 23c0 2.48.65 4.9 1.88 7.04L10 39l9.17-1.85A14.4 14.4 0 0 0 24 38.9c7.73 0 14-6.27 14-14a13.9 13.9 0 0 0-3.5-11.4zM24 36.3a11.9 11.9 0 0 1-6.07-1.66l-.44-.26-4.53.92.95-4.42-.28-.46A11.9 11.9 0 0 1 12.1 23c0-6.57 5.34-11.9 11.9-11.9 3.18 0 6.16 1.24 8.4 3.5a11.84 11.84 0 0 1 3.5 8.4c0 6.58-5.34 11.9-11.9 11.9zm6.52-8.93c-.36-.18-2.1-1.03-2.42-1.15-.33-.12-.56-.18-.8.18-.23.36-.9 1.15-1.1 1.38-.2.24-.4.27-.76.09-.36-.18-1.52-.56-2.89-1.78a10.83 10.83 0 0 1-2-2.49c-.2-.36-.02-.55.16-.73.16-.16.36-.42.54-.63.18-.2.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.8-1.93-1.1-2.64-.28-.69-.57-.6-.8-.61h-.67c-.24 0-.62.09-.94.45-.33.36-1.24 1.21-1.24 2.95s1.27 3.42 1.45 3.66c.18.24 2.5 3.82 6.06 5.36.85.37 1.51.59 2.02.75.85.27 1.62.23 2.23.14.68-.1 2.1-.86 2.4-1.69.29-.83.29-1.54.2-1.69-.08-.15-.32-.24-.68-.42z"/>
+    </svg>
+  </a>
+
+</body>
+</html>

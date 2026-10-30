@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Proud SAP &amp; Accounting Students | SINET Education</title>
+  <meta name="description" content="SINET Education placed SAP &amp; Accounting students — SAP Accountants, Auditors, and Financial Analysts placed across MNCs, UAE, Qatar, and top firms.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       Reset & Base
+    ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #060D1F;
+      color: #FFFFFF;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ================================================================
+       Header / Nav
+    ================================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 13, 31, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand img { height: 34px; width: auto; }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #19C5E8;
+      padding: 0.45rem 1rem;
+      border: 1px solid rgba(25,197,232,0.35);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .nav-back:hover {
+      background: rgba(25,197,232,0.1);
+      border-color: #19C5E8;
+    }
+
+    /* ================================================================
+       Hero Banner  — deep navy with geometric blobs
+    ================================================================ */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(135deg, #06101F 0%, #0B1838 45%, #0A1530 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Left & right blob arcs */
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: -180px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(25,197,232,0.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -140px; right: -200px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(49,94,251,0.15) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* Dot grid pattern left & right (CSS only) */
+    .dot-grid {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 120px;
+      display: grid;
+      grid-template-columns: repeat(5, 8px);
+      gap: 10px;
+      pointer-events: none;
+      opacity: 0.35;
+    }
+    .dot-grid.left  { left: 3%; }
+    .dot-grid.right { right: 3%; }
+    .dot-grid span {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: #19C5E8;
+      display: block;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #19C5E8;
+      background: rgba(25, 197, 232, 0.1);
+      border: 1px solid rgba(25, 197, 232, 0.35);
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow svg { flex-shrink: 0; }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.18;
+      color: #FFFFFF;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1rem;
+    }
+    .hero-title .accent { color: #19C5E8; }
+
+    .hero-underline {
+      width: 52px; height: 4px;
+      background: linear-gradient(90deg, #315EFB, #19C5E8);
+      border-radius: 2px;
+      margin: 0 auto 1.25rem auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #A0B3CC;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Stats strip below hero */
+    .stats-strip {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .sn { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 800; color: #FFFFFF; display: block; }
+    .stat-item .sl { font-size: 0.75rem; font-weight: 600; color: #19C5E8; letter-spacing: 0.05em; text-transform: uppercase; display: block; margin-top: 0.2rem; }
+
+    /* ================================================================
+       Students Grid Section
+    ================================================================ */
+    .students-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .students-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.25rem 2rem;
+    }
+
+    /* ================================================================
+       Student Card
+    ================================================================ */
+    .student-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2.5rem 1.5rem 2rem;
+      background: linear-gradient(160deg, #0D1A35 0%, #0A1428 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+    }
+    .student-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #19C5E8, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .student-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 56px rgba(25, 197, 232, 0.14), 0 4px 16px rgba(0,0,0,0.4);
+      border-color: rgba(25,197,232,0.3);
+    }
+    .student-card:hover::before { opacity: 1; }
+
+    /* --- Photo with gold laurel wreath --- */
+    .student-photo-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* Outer gold glow ring */
+    .student-photo-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #B8860B 0deg, #FFD700 40deg, #DAA520 80deg,
+        #B8860B 120deg, #FFD700 160deg, #DAA520 200deg,
+        #B8860B 240deg, #FFD700 280deg, #DAA520 320deg,
+        #B8860B 360deg
+      );
+      z-index: 0;
+      filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.7));
+    }
+
+    /* Photo circle */
+    .student-photo {
+      position: absolute;
+      inset: 4px;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      border-radius: 50%;
+      overflow: hidden;
+      z-index: 1;
+      border: 3px solid #FFFFFF;
+      background: #1A2740;
+    }
+    .student-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 50%;
+    }
+
+    /* Gold laurel wreath SVG positioned around photo */
+    .laurel-wreath {
+      position: absolute;
+      inset: -18px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ----------------------------------------------------------------
+       Card text
+    ---------------------------------------------------------------- */
+    .student-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .student-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #19C5E8;
+      margin-bottom: 0.45rem;
+    }
+
+    .student-company {
+      font-size: 0.85rem;
+      color: #94A3B8;
+      line-height: 1.45;
+    }
+
+    .card-divider {
+      width: 36px;
+      height: 3px;
+      background: linear-gradient(90deg, #315EFB, #19C5E8);
+      border-radius: 2px;
+      margin: 1rem auto 0 auto;
+    }
+
+    /* ================================================================
+       Footer strip
+    ================================================================ */
+    .page-footer {
+      background: #040A17;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #4A6080;
+    }
+    .page-footer a { color: #19C5E8; }
+
+    /* WhatsApp float */
+    .whatsapp-float-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: transform 0.25s ease;
+    }
+    .whatsapp-float-btn:hover { transform: scale(1.1); }
+
+    /* ================================================================
+       Responsive
+    ================================================================ */
+    @media (max-width: 960px) {
+      .students-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem 1.5rem;
+      }
+      .dot-grid { display: none; }
+      .stats-strip {
+        gap: 2rem 2.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        padding: 0 1rem;
+      }
+      .nav-inner {
+        height: 56px;
+      }
+      .nav-brand img {
+        height: 28px;
+      }
+      .nav-back {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.75rem;
+      }
+      .hero-banner {
+        padding: 2.75rem 1rem 2.25rem;
+      }
+      .hero-eyebrow {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.85rem;
+        margin-bottom: 0.85rem;
+      }
+      .hero-title {
+        font-size: clamp(1.65rem, 6.5vw, 2.25rem);
+        margin-bottom: 0.65rem;
+      }
+      .hero-underline {
+        margin-bottom: 0.85rem;
+      }
+      .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .stats-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.15rem 0.75rem;
+        padding: 1.15rem 1rem;
+      }
+      .stat-item .sn {
+        font-size: 1.25rem;
+      }
+      .stat-item .sl {
+        font-size: 0.68rem;
+      }
+      .students-section {
+        padding: 2rem 0.75rem 3.5rem;
+        max-width: 100%;
+      }
+      /* 2 student cards in 1 row on mobile */
+      .students-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .student-card {
+        padding: 1.25rem 0.6rem 1rem;
+        border-radius: 14px;
+      }
+      .student-photo-wrapper {
+        width: clamp(75px, 22vw, 95px);
+        height: clamp(75px, 22vw, 95px);
+        margin-bottom: 0.75rem;
+      }
+      .laurel-wreath {
+        inset: -12px;
+      }
+      .student-name {
+        font-size: clamp(0.78rem, 2.5vw, 0.88rem);
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.2rem;
+        line-height: 1.25;
+        word-break: break-word;
+      }
+      .student-role {
+        font-size: clamp(0.7rem, 2.2vw, 0.78rem);
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+      }
+      .student-company {
+        font-size: clamp(0.65rem, 2vw, 0.72rem);
+        line-height: 1.35;
+        color: #94A3B8;
+        word-break: break-word;
+      }
+      .card-divider {
+        width: 24px;
+        height: 2px;
+        margin: 0.6rem auto 0 auto;
+      }
+      .whatsapp-float-btn {
+        bottom: 1rem;
+        right: 1rem;
+      }
+      .whatsapp-float-btn svg {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      .stats-strip {
+        gap: 0.85rem 0.5rem;
+        padding: 0.85rem 0.5rem;
+      }
+      .stat-item .sn {
+        font-size: 1.1rem;
+      }
+      .stat-item .sl {
+        font-size: 0.62rem;
+      }
+      .students-section {
+        padding: 1.5rem 0.5rem 3rem;
+      }
+      .students-grid {
+        gap: 0.65rem 0.5rem;
+      }
+      .student-card {
+        padding: 1rem 0.45rem 0.85rem;
+        border-radius: 12px;
+      }
+      .student-photo-wrapper {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0.6rem;
+      }
+      .laurel-wreath {
+        inset: -9px;
+      }
+      .student-name {
+        font-size: 0.74rem;
+      }
+      .student-role {
+        font-size: 0.68rem;
+      }
+      .student-company {
+        font-size: 0.62rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Header / Navigation
+  ============================================================ -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="course-details.html" class="nav-brand" aria-label="SINET Education Homepage">
+        <img src="images/sinet-white.png" alt="SINET Education">
+      </a>
+      <a href="course-details.html#employed-students" class="nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Back to Placements
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       Hero Banner
+  ============================================================ -->
+  <section class="hero-banner">
+
+    <!-- Dot grids -->
+    <div class="dot-grid left" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="dot-grid right" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Eyebrow pill -->
+    <div class="hero-eyebrow">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      OUR SUCCESS STORIES
+    </div>
+
+    <!-- Title -->
+    <h1 class="hero-title">OUR <span class="accent">PROUD STUDENTS</span></h1>
+    <div class="hero-underline"></div>
+    <p class="hero-subtitle">We salute our students for their achievements!</p>
+
+  </section>
+
+  <!-- Stats Strip -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="sn">75+</span>
+      <span class="sl">SAP &amp; Accounts Placements</span>
+    </div>
+    <div class="stat-item">
+      <span class="sn">MNCs &amp; Firms</span>
+      <span class="sl">Sabhan, Mayoori &amp; More</span>
+    </div>
+    <div class="stat-item">
+      <span class="sn">UAE, Qatar &amp; India</span>
+      <span class="sl">Global Placements</span>
+    </div>
+    <div class="stat-item">
+      <span class="sn">100%</span>
+      <span class="sl">Placement Support</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       Students Grid
+  ============================================================ -->
+  <main class="students-section">
+    <div class="students-grid">
+
+      <!-- Inline SVG laurel wreath reused via symbol -->
+      <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="laurel" viewBox="0 0 180 180">
+          <!-- Simplified gold laurel wreath drawn with arcs -->
+          <g fill="none" stroke-linecap="round">
+            <!-- Left branch leaves -->
+            <ellipse cx="24" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(-30 24 90)"/>
+            <ellipse cx="18" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(-50 18 74)"/>
+            <ellipse cx="20" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(-70 20 58)"/>
+            <ellipse cx="30" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(-90 30 44)"/>
+            <ellipse cx="44" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(-110 44 34)"/>
+            <ellipse cx="61" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(-130 61 26)"/>
+            <!-- Right branch leaves -->
+            <ellipse cx="156" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(30 156 90)"/>
+            <ellipse cx="162" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(50 162 74)"/>
+            <ellipse cx="160" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(70 160 58)"/>
+            <ellipse cx="150" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(90 150 44)"/>
+            <ellipse cx="136" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(110 136 34)"/>
+            <ellipse cx="119" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(130 119 26)"/>
+            <!-- Bottom bow knot -->
+            <ellipse cx="74"  cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(20 74 170)"/>
+            <ellipse cx="90"  cy="172" rx="8"  ry="5" fill="#DAA520"/>
+            <ellipse cx="106" cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(-20 106 170)"/>
+            <!-- Stem arcs -->
+            <path d="M28 100 Q12 130 50 160" stroke="#C8960C" stroke-width="3" fill="none"/>
+            <path d="M152 100 Q168 130 130 160" stroke="#C8960C" stroke-width="3" fill="none"/>
+          </g>
+        </symbol>
+      </svg>
+
+      <!-- ── STUDENT 1 – Akshaya ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Akshaya-at-sabhan-group-manjeri.png" alt="Akshaya – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Akshaya</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Sabhan Group LLP, Manjeri</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 2 – Mohammed Ajmal ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Ajmal-at-sabhan-group-manjeri.png" alt="Mohammed Ajmal – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Ajmal</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Sabhan Group LLP, Manjeri</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 3 – Shahla Riyana ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Shahla-Riyana-at-Tax-matters-llp-Perinthalmanna.png" alt="Shahla Riyana – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahla Riyana</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Tax Matters LLP, Perinthalmanna</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 4 – Shahna Bathool ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Shahna-Bathool-at-Bismi-group.png" alt="Shahna Bathool – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahna Bathool</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Bismi Group LLP</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 5 – Ashfin ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Ashfin-at-Mayoori-Perinthalmanna.png" alt="Ashfin – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ashfin</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Mayoori Group, Perinthalmanna</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 6 – Salih C ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Swalih-at-Prudential-auditing-fujaira-uae.png" alt="Salih C – Auditor" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Salih C</h3>
+        <p class="student-role">Auditor</p>
+        <p class="student-company">Prudential Auditing, Fujairah, UAE</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 7 – Vishnu V ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Vishnu-at-image-group.png" alt="Vishnu V – Auditor" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Vishnu V</h3>
+        <p class="student-role">Auditor</p>
+        <p class="student-company">Image Group</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 8 – Janani ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Janani-at-Vidhya-board-studies.png" alt="Janani – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Janani</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Vidhya Abroad Studies</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 9 – Hasna Jahan K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-office-administrator-Hasna-Jahan-k-at-Indora-interiors.png" alt="Hasna Jahan K – Office Administrator" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Hasna Jahan K</h3>
+        <p class="student-role">Office Administrator</p>
+        <p class="student-company">Indora Interiors</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 10 – Rameeza Parveen ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-faculty-Rameeza-Parveen-at-cica-institute-perinthalmanna.png" alt="Rameeza Parveen – SAP Faculty" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Rameeza Parveen</h3>
+        <p class="student-role">SAP Faculty</p>
+        <p class="student-company">CICA Institute, Perinthalmanna</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 11 – Mohammed Thasleem K P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P11-MOHAMMED-THASLEEM-K-P-1.png" alt="Mohammed Thasleem K P – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Thasleem K P</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Irreplaceable, Doha, Qatar</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 12 – Shahana V P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P8-SHAHANA-V-P-1.png" alt="Shahana V P – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahana V P</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Crescent Consultation, Dubai</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 13 – Thafseena N ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P15-Thafseena-1.png" alt="Thafseena N – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Thafseena N</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">HICOM, Ras Al Khaimah, UAE</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 14 – Sanjid T ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P20-SANJID-1.png" alt="Sanjid T – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Sanjid T</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Al Misnad LLC, Doha, Qatar</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 15 – Faheem K T ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Faheem-KT-at-Image-group.png" alt="Faheem K T – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Faheem K T</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Image Group</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 16 – Falah V P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Falah-vp-at-HCP-India.png" alt="Falah V P – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Falah V P</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">HCP India</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 17 – Midhilaj ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Midhilaj-at-Chamayam-group.png" alt="Midhilaj – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Midhilaj</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Chamayam Group</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 18 – Nishana ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Nishana-at-Chamayam-group-Perinthalmanna.png" alt="Nishana – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Nishana</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Chamayam Group, Perinthalmanna</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 19 – Nuhman ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Nuhman-at-ACC-group-malappuram.png" alt="Nuhman – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Nuhman</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">ACC Group, Malappuram</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 20 – Shahabas V P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-sap-accountant-Shahabas-VP-at-v3-Agencies.png" alt="Shahabas V P – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahabas V P</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">V3 Agencies</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 21 – Ajmal ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-accountant-Ajmal-at-Aweera-malappuram.png" alt="Ajmal – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ajmal</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Aweera, Malappuram</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 22 – Mohammed Asif Ali ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/sinet-placed-accountant-Mohammed-Asif-Ali-at-Capitol-Enterprizes.png" alt="Mohammed Asif Ali – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Asif Ali</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Capitol Enterprises</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 23 – Abdul Rauf C ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/Abdul-Rauf-C-OMAN.png" alt="Abdul Rauf C – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Abdul Rauf C</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Sultanate of Oman</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 24 – Asif ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/asif-working-UAE.png" alt="Asif – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Asif</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Corporate Sector, UAE</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 25 – Fasil ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/fasil-Accountant.png" alt="Fasil – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Fasil</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Accounting & Finance</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 26 – Mohammed Arsal P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P1-MOHAMMED-ARSAL-P-1.png" alt="Mohammed Arsal P – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Arsal P</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Corporate Finance</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 27 – Ajmal Alloor ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P2-Ajmal-Alloor-1.png" alt="Ajmal Alloor – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ajmal Alloor</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Taxation & Audit</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 28 – Fathima M ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P3-FATHIMA-M-1.png" alt="Fathima M – Junior Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Fathima M</h3>
+        <p class="student-role">Junior Accountant</p>
+        <p class="student-company">Financial Services</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 29 – Aswin Krishnan P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P5-ASWIN-KRISHNAN-P-1.png" alt="Aswin Krishnan P – SAP FICO Specialist" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Aswin Krishnan P</h3>
+        <p class="student-role">SAP FICO Specialist</p>
+        <p class="student-company">Corporate Finance</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 30 – Mohammed Favas T K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P6-MOHAMMED-FAVAS-T-K-1.png" alt="Mohammed Favas T K – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Favas T K</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Commercial Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 31 – Ameera P T ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P13-AMeera-pt-M-1.png" alt="Ameera P T – Financial Analyst" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ameera P T</h3>
+        <p class="student-role">Financial Analyst</p>
+        <p class="student-company">Accounting Firm</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 32 – Ajwad ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/P19-AJWAD-1.png" alt="Ajwad – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ajwad</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Trade & Commerce</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 33 – Ubais ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/S1-UBAIS-1.png" alt="Ubais – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ubais</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Auditing & Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 34 – Ummer ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/S3-UMMER-1.png" alt="Ummer – Senior Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ummer</h3>
+        <p class="student-role">Senior Accountant</p>
+        <p class="student-company">Business Group</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 35 – Ramees ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/S4-RAMEES-1.png" alt="Ramees – Accounts Officer" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Ramees</h3>
+        <p class="student-role">Accounts Officer</p>
+        <p class="student-company">Corporate Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 36 – Shaad ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/S5-SHAAD-1.png" alt="Shaad – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shaad</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Global Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 37 – Shibili ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/S6-Shibili-1.png" alt="Shibili – Financial Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shibili</h3>
+        <p class="student-role">Financial Accountant</p>
+        <p class="student-company">Commercial Firm</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 38 – Adarsh ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Adarsh-1.png" alt="Adarsh – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Adarsh</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Tax & ERP Systems</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 39 – Anshad ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Anshad-1.png" alt="Anshad – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Anshad</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Enterprise Solutions</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 40 – Habidheen ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Habidheen-1.png" alt="Habidheen – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Habidheen</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Financial Audits</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 41 – Hashim ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Hashim-1.png" alt="Hashim – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Hashim</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Commercial Hub</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 42 – Jaisal ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Jaisal-1.png" alt="Jaisal – Financial Analyst" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Jaisal</h3>
+        <p class="student-role">Financial Analyst</p>
+        <p class="student-company">Corporate Services</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 43 – Javad ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Javad-1.png" alt="Javad – SAP FICO Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Javad</h3>
+        <p class="student-role">SAP FICO Executive</p>
+        <p class="student-company">Business Systems</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 44 – Lahan ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Lahan-1.png" alt="Lahan – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Lahan</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Financial Consulting</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 45 – Munavvir ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Munavvir-1.png" alt="Munavvir – Accounts Associate" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Munavvir</h3>
+        <p class="student-role">Accounts Associate</p>
+        <p class="student-company">Audit & Tax</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 46 – Najmath ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Najmath-1.png" alt="Najmath – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Najmath</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Corporate Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 47 – Niyas ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Niyas-1.png" alt="Niyas – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Niyas</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Global Solutions</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 48 – Rasalu ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Rasalu-1.png" alt="Rasalu – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Rasalu</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Trade & Finance</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 49 – Rinshad ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Rinshad-1.png" alt="Rinshad – Financial Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Rinshad</h3>
+        <p class="student-role">Financial Accountant</p>
+        <p class="student-company">Enterprise Group</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 50 – Unais ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/b3-Unais-1.png" alt="Unais – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Unais</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Commercial Auditing</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 51 – Chanjal George ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/CHANJAL-GEORGE.png" alt="Chanjal George – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Chanjal George</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Financial Services</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 52 – Danish P T ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/DANISH-PT.png" alt="Danish P T – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Danish P T</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Corporate Firm</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 53 – Dilshad Mon ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/DILSHAD-MON.png" alt="Dilshad Mon – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Dilshad Mon</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Trade & Commerce</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 54 – Heera Krishnan ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/HEERA-KRISHNAN.png" alt="Heera Krishnan – Financial Analyst" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Heera Krishnan</h3>
+        <p class="student-role">Financial Analyst</p>
+        <p class="student-company">Accounting Services</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 55 – Kavya Sreedharan ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/Kavya-Sreedharan.png" alt="Kavya Sreedharan – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Kavya Sreedharan</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Tax & Ledger</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 56 – Mohammed Saiful N P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/MOHAMMED-SAIFUL-NP.png" alt="Mohammed Saiful N P – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Mohammed Saiful N P</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Corporate Audits</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 57 – Muhammed Ashif K K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/MUHAMMED-ASHIF-KK.png" alt="Muhammed Ashif K K – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Muhammed Ashif K K</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Financial Systems</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 58 – Muhammed Asil Midlaj ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/Muhammed-Asil-Midlaj-CK.png" alt="Muhammed Asil Midlaj – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Muhammed Asil Midlaj</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Commercial Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 59 – Muhammed Shafeeq E B ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/MUHAMMED-SHAFEEQ-EB.png" alt="Muhammed Shafeeq E B – Financial Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Muhammed Shafeeq E B</h3>
+        <p class="student-role">Financial Accountant</p>
+        <p class="student-company">Business Group</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 60 – Muhammed Shahil T P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/MUHAMMED-SHAHIL-TP.png" alt="Muhammed Shahil T P – SAP FICO Associate" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Muhammed Shahil T P</h3>
+        <p class="student-role">SAP FICO Associate</p>
+        <p class="student-company">Enterprise Firm</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 61 – Najiya K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/NAJIYA-K.png" alt="Najiya K – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Najiya K</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Tax & Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 62 – Naseef A ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/NASEEF-A.png" alt="Naseef A – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Naseef A</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Financial Consulting</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 63 – Naseem ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/NASEEM-DBFM.png" alt="Naseem – Financial Analyst" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Naseem</h3>
+        <p class="student-role">Financial Analyst</p>
+        <p class="student-company">Banking & Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 64 – Rasheeka ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/RASHEEKA.png" alt="Rasheeka – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Rasheeka</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Corporate Auditing</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 65 – Rasheeqah Nasreen K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/RASHEEQAH-NASREEN-K.png" alt="Rasheeqah Nasreen K – Accounts Officer" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Rasheeqah Nasreen K</h3>
+        <p class="student-role">Accounts Officer</p>
+        <p class="student-company">Financial Services</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 66 – Saidul Vasith ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/SAIDUL-VASITH.png" alt="Saidul Vasith – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Saidul Vasith</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Enterprise Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 67 – Saina Reem Sakkeer ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/SAINA-REEM-SAKKEER-M-1.png" alt="Saina Reem Sakkeer – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Saina Reem Sakkeer</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Commercial Firm</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 68 – Shahal A V ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/SHAHAL-A-V.png" alt="Shahal A V – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahal A V</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Financial Services</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 69 – Shahala Nazrin M ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/SHAHALA-NAZRIN-M.png" alt="Shahala Nazrin M – Financial Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shahala Nazrin M</h3>
+        <p class="student-role">Financial Accountant</p>
+        <p class="student-company">Corporate Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 70 – Shakeela C K ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/SHAKEELA-CK.png" alt="Shakeela C K – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shakeela C K</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Audit & Tax</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 71 – Shanif ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/SHANIF-Got-Job.png" alt="Shanif – SAP Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Shanif</h3>
+        <p class="student-role">SAP Accountant</p>
+        <p class="student-company">Business Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 72 – Yusara P ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/YUSARA-P.png" alt="Yusara P – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Yusara P</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Financial Firm</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 73 – Anjali Krishna ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/Anjali-Krishna.png" alt="Anjali Krishna – Accounts Executive" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Anjali Krishna</h3>
+        <p class="student-role">Accounts Executive</p>
+        <p class="student-company">Corporate Accounts</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 74 – Afnas ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/afnas.png" alt="Afnas – Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Afnas</h3>
+        <p class="student-role">Accountant</p>
+        <p class="student-company">Financial Services</p>
+        <div class="card-divider"></div>
+      </article>
+
+      <!-- ── STUDENT 75 – Aysha Sherin ── -->
+      <article class="student-card">
+        <div class="student-photo-wrapper">
+          <div class="student-photo">
+            <img src="images/sap/AYSHA-SHERIN.png" alt="Aysha Sherin – Junior Accountant" loading="lazy">
+          </div>
+          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
+        </div>
+        <h3 class="student-name">Aysha Sherin</h3>
+        <p class="student-role">Junior Accountant</p>
+        <p class="student-company">Auditing & Finance</p>
+        <div class="card-divider"></div>
+      </article>
+
+    </div><!-- /.students-grid -->
+  </main>
+
+  <!-- ============================================================
+       Footer
+  ============================================================ -->
+  <footer class="page-footer">
+    <p>&copy; 2026 SINET Education, Perinthalmanna &amp; Manjeri &mdash; <a href="course-details.html">Back to Course Details</a></p>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://api.whatsapp.com/send?phone=918086800700&text=Hello%20SINET!%20I%20want%20to%20know%20about%20SAP%20%26%20Accounting%20placements" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="whatsapp-float-btn">
+    <svg width="52" height="52" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#25D366"/>
+      <path fill="#fff" d="M34.5 13.5A14.4 14.4 0 0 0 24 9C16.27 9 10 15.27 10 23c0 2.48.65 4.9 1.88 7.04L10 39l9.17-1.85A14.4 14.4 0 0 0 24 38.9c7.73 0 14-6.27 14-14a13.9 13.9 0 0 0-3.5-11.4zM24 36.3a11.9 11.9 0 0 1-6.07-1.66l-.44-.26-4.53.92.95-4.42-.28-.46A11.9 11.9 0 0 1 12.1 23c0-6.57 5.34-11.9 11.9-11.9 3.18 0 6.16 1.24 8.4 3.5a11.84 11.84 0 0 1 3.5 8.4c0 6.58-5.34 11.9-11.9 11.9zm6.52-8.93c-.36-.18-2.1-1.03-2.42-1.15-.33-.12-.56-.18-.8.18-.23.36-.9 1.15-1.1 1.38-.2.24-.4.27-.76.09-.36-.18-1.52-.56-2.89-1.78a10.83 10.83 0 0 1-2-2.49c-.2-.36-.02-.55.16-.73.16-.16.36-.42.54-.63.18-.2.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.8-1.93-1.1-2.64-.28-.69-.57-.6-.8-.61h-.67c-.24 0-.62.09-.94.45-.33.36-1.24 1.21-1.24 2.95s1.27 3.42 1.45 3.66c.18.24 2.5 3.82 6.06 5.36.85.37 1.51.59 2.02.75.85.27 1.62.23 2.23.14.68-.1 2.1-.86 2.4-1.69.29-.83.29-1.54.2-1.69-.08-.15-.32-.24-.68-.42z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
