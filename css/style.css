@@ -12,12 +12,12 @@
   --bg-light: #F4F7FC;
   --bg-white: #FFFFFF;
   
-  --primary-accent: #315EFB;
-  --primary-accent-hover: #214BD9;
-  --primary-accent-glow: rgba(49, 94, 251, 0.35);
+  --primary-accent: #F59E0B;
+  --primary-accent-hover: #D97706;
+  --primary-accent-glow: rgba(245, 158, 11, 0.45);
   
-  --secondary-accent: #19C5E8;
-  --secondary-accent-glow: rgba(25, 197, 232, 0.3);
+  --secondary-accent: #FBBF24;
+  --secondary-accent-glow: rgba(251, 191, 36, 0.35);
   
   --coral-accent: #EF4444;
   --coral-soft: #FEE2E2;
@@ -32,16 +32,17 @@
   --text-muted: #64748B;
   --text-light: #FFFFFF;
   --text-light-sub: #94A3B8;
+  --text-yellow-sub: #FBBF24;
   
   /* Borders & Shadows */
   --border-light: #E2E8F0;
   --border-dark: rgba(255, 255, 255, 0.1);
-  --border-dark-glow: rgba(49, 94, 251, 0.4);
+  --border-dark-glow: rgba(245, 158, 11, 0.4);
   
   --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.06);
   --shadow-lg: 0 14px 34px rgba(15, 23, 42, 0.09);
-  --shadow-glow: 0 0 30px rgba(49, 94, 251, 0.3);
+  --shadow-glow: 0 0 30px rgba(245, 158, 11, 0.35);
   
   /* Radii */
   --radius-sm: 8px;
@@ -121,8 +122,8 @@ button, input, select, textarea {
 
 .eyebrow-pill {
   padding: 0.35rem 1rem;
-  background: rgba(49, 94, 251, 0.12);
-  border: 1px solid rgba(49, 94, 251, 0.3);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.4);
   border-radius: var(--radius-pill);
 }
 
@@ -148,7 +149,7 @@ button, input, select, textarea {
 }
 
 .section-subtitle.light {
-  color: var(--text-light-sub);
+  color: var(--secondary-accent);
 }
 
 .text-center {
@@ -161,7 +162,7 @@ button, input, select, textarea {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #19C5E8 50%, #315EFB 100%);
+  background: linear-gradient(135deg, #FFD000 0%, #FF9E00 45%, #FF5500 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -192,7 +193,7 @@ button, input, select, textarea {
 .btn-primary:hover {
   background: var(--primary-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(49, 94, 251, 0.5);
+  box-shadow: 0 6px 22px rgba(245, 158, 11, 0.5);
 }
 
 .btn-secondary {
@@ -396,8 +397,8 @@ button, input, select, textarea {
   position: relative;
   background-color: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 80% 20%, rgba(49, 94, 251, 0.22) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(25, 197, 232, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 75% 30%, rgba(245, 158, 11, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.12) 0%, transparent 45%),
     linear-gradient(to bottom, #070C16 0%, #0B1220 100%);
   color: #FFFFFF;
   padding: 5rem 0 6.5rem;
@@ -412,8 +413,8 @@ button, input, select, textarea {
   bottom: 0;
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(245, 158, 11, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 158, 11, 0.04) 1px, transparent 1px);
   pointer-events: none;
 }
 
@@ -444,8 +445,8 @@ button, input, select, textarea {
 
 .hero-subtitle {
   font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--secondary-accent);
+  font-weight: 700;
+  color: #F59E0B;
   margin-bottom: 1rem;
 }
 
@@ -487,12 +488,12 @@ button, input, select, textarea {
   width: 34px;
   height: 34px;
   border-radius: var(--radius-sm);
-  background: rgba(49, 94, 251, 0.2);
-  border: 1px solid rgba(49, 94, 251, 0.4);
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--secondary-accent);
+  color: #FBBF24;
   flex-shrink: 0;
 }
 
@@ -506,8 +507,8 @@ button, input, select, textarea {
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(49, 94, 251, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(245, 158, 11, 0.25);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
   aspect-ratio: 4/3;
 }
 
@@ -525,13 +526,13 @@ button, input, select, textarea {
 /* Floating Glass Cards */
 .floating-glass-card {
   position: absolute;
-  background: rgba(11, 18, 32, 0.82);
+  background: rgba(11, 18, 32, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
   border-radius: var(--radius-md);
   padding: 0.85rem 1.15rem;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(49, 94, 251, 0.2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.25);
   z-index: 10;
   transition: transform 0.3s ease;
 }
@@ -665,8 +666,8 @@ button, input, select, textarea {
   background: rgba(17, 27, 46, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 30px rgba(49, 94, 251, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 30px rgba(245, 158, 11, 0.15);
 }
 
 .strip-card.strip-card-dark .strip-primary {
@@ -682,8 +683,8 @@ button, input, select, textarea {
 }
 
 .strip-card.strip-card-dark .strip-icon-box {
-  background: rgba(49, 94, 251, 0.2);
-  color: #19C5E8;
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
 }
 
 .strip-item {
@@ -701,7 +702,7 @@ button, input, select, textarea {
   width: 46px;
   height: 46px;
   border-radius: var(--radius-md);
-  background: rgba(49, 94, 251, 0.08);
+  background: rgba(245, 158, 11, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -833,25 +834,25 @@ button, input, select, textarea {
 /* Light Card: Course Highlights */
 .sinet-hl-card-light {
   background: #FFFFFF;
-  border: 1.5px solid #D6E4FF;
-  box-shadow: 0 10px 30px rgba(49, 94, 251, 0.08);
+  border: 1.5px solid #FDE68A;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.08);
 }
 
 .sinet-hl-card-light:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(49, 94, 251, 0.13);
+  box-shadow: 0 16px 36px rgba(245, 158, 11, 0.16);
 }
 
 /* Dark Card: Job Placements */
 .sinet-hl-card-dark {
   background: linear-gradient(145deg, #0B1220 0%, #15213D 100%);
-  border: 1.5px solid rgba(49, 94, 251, 0.35);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
   box-shadow: 0 12px 35px rgba(11, 18, 32, 0.4);
 }
 
 .sinet-hl-card-dark:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 42px rgba(49, 94, 251, 0.22);
+  box-shadow: 0 16px 42px rgba(245, 158, 11, 0.25);
 }
 
 /* Card Top / Header */
@@ -879,9 +880,9 @@ button, input, select, textarea {
 }
 
 .sinet-hl-icon-badge.blue {
-  background: #EEF2FF;
-  color: #315EFB;
-  border: 1px solid #D0DCFA;
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 
 .sinet-hl-icon-badge.gold {
@@ -906,11 +907,11 @@ button, input, select, textarea {
 .sinet-hl-subtag {
   font-size: 0.8rem;
   font-weight: 600;
-  color: #315EFB;
+  color: #D97706;
 }
 
 .sinet-hl-subtag.light {
-  color: #19C5E8;
+  color: #FBBF24;
 }
 
 /* List Body */
@@ -971,8 +972,8 @@ button, input, select, textarea {
 .sinet-certfee-sec {
   background: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 15% 50%, rgba(49, 94, 251, 0.16) 0%, transparent 50%),
-    radial-gradient(circle at 85% 50%, rgba(25, 197, 232, 0.12) 0%, transparent 50%);
+    radial-gradient(circle at 15% 50%, rgba(245, 158, 11, 0.16) 0%, transparent 50%),
+    radial-gradient(circle at 85% 50%, rgba(251, 191, 36, 0.12) 0%, transparent 50%);
   padding: 5rem 0;
 }
 
@@ -995,7 +996,7 @@ button, input, select, textarea {
 /* Desktop Divider */
 .sinet-cf-divider {
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(49, 94, 251, 0.4), rgba(25, 197, 232, 0.4), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(245, 158, 11, 0.4), rgba(251, 191, 36, 0.4), transparent);
   margin: 0 3rem;
   align-self: stretch;
   flex-shrink: 0;
@@ -1020,15 +1021,15 @@ button, input, select, textarea {
 }
 
 .sinet-cf-icon-circle.blue {
-  background: rgba(49, 94, 251, 0.14);
-  border: 1.5px solid rgba(49, 94, 251, 0.35);
-  box-shadow: 0 0 20px rgba(49, 94, 251, 0.2);
+  background: rgba(245, 158, 11, 0.15);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
 }
 
 .sinet-cf-icon-circle.cyan {
-  background: rgba(25, 197, 232, 0.14);
-  border: 1.5px solid rgba(25, 197, 232, 0.35);
-  box-shadow: 0 0 20px rgba(25, 197, 232, 0.2);
+  background: rgba(251, 191, 36, 0.15);
+  border: 1.5px solid rgba(251, 191, 36, 0.4);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.25);
 }
 
 .sinet-cf-title {
@@ -1042,7 +1043,7 @@ button, input, select, textarea {
 }
 
 .sinet-cf-title.cyan-text {
-  color: #19C5E8;
+  color: #F59E0B;
 }
 
 /* Certifications Column Items */
@@ -1064,8 +1065,8 @@ button, input, select, textarea {
 }
 
 .sinet-cert-card:hover {
-  background: rgba(49, 94, 251, 0.08);
-  border-color: rgba(49, 94, 251, 0.3);
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.35);
 }
 
 .sinet-cert-medal {
@@ -1096,7 +1097,7 @@ button, input, select, textarea {
 
 .sinet-cert-notes {
   font-size: 0.82rem;
-  color: #19C5E8;
+  color: #FBBF24;
   font-style: italic;
   margin-top: 0.5rem;
 }
@@ -1144,13 +1145,13 @@ button, input, select, textarea {
 }
 
 .sinet-fee-amount.emi {
-  color: #19C5E8;
+  color: #F59E0B;
 }
 
 .sinet-fee-tag {
-  background: rgba(25, 197, 232, 0.18);
-  border: 1px solid rgba(25, 197, 232, 0.35);
-  color: #19C5E8;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #F59E0B;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.15rem 0.6rem;
@@ -1158,7 +1159,7 @@ button, input, select, textarea {
 }
 
 .sinet-fee-line.total {
-  border-top: 1px solid rgba(49, 94, 251, 0.35);
+  border-top: 1px solid rgba(245, 158, 11, 0.35);
   padding-top: 0.75rem;
   margin-top: 0.2rem;
 }
@@ -1172,7 +1173,7 @@ button, input, select, textarea {
 .sinet-fee-amount.total-val {
   font-size: 1.35rem;
   font-weight: 900;
-  color: #38BDF8;
+  color: #FBBF24;
 }
 
 /* Syllabus Block */
@@ -1196,8 +1197,8 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: linear-gradient(135deg, rgba(49, 94, 251, 0.15) 0%, rgba(25, 197, 232, 0.15) 100%);
-  border: 1.5px solid rgba(49, 94, 251, 0.45);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(251, 191, 36, 0.15) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.5);
   border-radius: 12px;
   padding: 0.9rem 1.4rem;
   font-size: 0.98rem;
@@ -1205,15 +1206,15 @@ button, input, select, textarea {
   color: #FFFFFF;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(49, 94, 251, 0.15);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
 }
 
 .sinet-syllabus-btn:hover {
-  background: linear-gradient(135deg, #315EFB 0%, #0050E6 100%);
-  border-color: #315EFB;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  border-color: #F59E0B;
+  color: #0B1220;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(49, 94, 251, 0.35);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.45);
 }
 
 
@@ -1272,7 +1273,7 @@ button, input, select, textarea {
 .section-tools {
   background: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(49, 94, 251, 0.18) 0%, transparent 60%);
+    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.2) 0%, transparent 60%);
   color: #FFFFFF;
   padding: 5.5rem 0;
 }
@@ -1299,9 +1300,9 @@ button, input, select, textarea {
 
 .tool-badge-card:hover {
   background: rgba(22, 36, 61, 0.9);
-  border-color: rgba(25, 197, 232, 0.4);
+  border-color: rgba(245, 158, 11, 0.5);
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(25, 197, 232, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(245, 158, 11, 0.3);
 }
 
 .tool-icon-container {
@@ -1373,8 +1374,9 @@ button, input, select, textarea {
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 800;
-  color: var(--primary-accent);
-  background: rgba(49, 94, 251, 0.1);
+  color: #B45309;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius-sm);
 }
@@ -1448,8 +1450,9 @@ details.accordion-item summary::marker {
   font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--primary-accent);
-  background: rgba(49, 94, 251, 0.1);
+  color: #B45309;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
@@ -1518,7 +1521,7 @@ details.accordion-item[open] > .accordion-body {
 }
 
 .topic-check-icon {
-  color: var(--primary-accent);
+  color: #F59E0B;
   flex-shrink: 0;
   margin-top: 3px;
 }
@@ -1862,7 +1865,8 @@ details.accordion-item[open] > .accordion-body {
 
 .student-meta .student-course {
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: #D97706;
+  font-weight: 600;
 }
 
 .review-quote {
@@ -2902,7 +2906,7 @@ details.faq-card[open] .faq-answer-pane {
 .connect-eyebrow {
   font-size: 0.75rem;
   font-weight: 800;
-  color: #0066FF;
+  color: #D97706;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
@@ -2954,8 +2958,8 @@ details.faq-card[open] .faq-answer-pane {
 }
 
 .connect-input:focus {
-  border-color: #0066FF;
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+  border-color: #F59E0B;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
 .recaptcha-box {
@@ -3007,7 +3011,7 @@ details.faq-card[open] .faq-answer-pane {
 }
 
 .connect-trust-item svg {
-  color: #0066FF;
+  color: #F59E0B;
   flex-shrink: 0;
 }
 
@@ -3019,7 +3023,7 @@ details.faq-card[open] .faq-answer-pane {
 }
 
 .connect-terms-notice a {
-  color: #0066FF;
+  color: #D97706;
   text-decoration: underline;
 }
 
@@ -3048,7 +3052,7 @@ details.faq-card[open] .faq-answer-pane {
 }
 
 .btn-connect-next {
-  background: #0066FF;
+  background: #F59E0B;
   border: none;
   color: #FFFFFF;
   font-family: var(--font-display);
@@ -3061,14 +3065,14 @@ details.faq-card[open] .faq-answer-pane {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
   transition: all var(--transition-fast);
 }
 
 .btn-connect-next:hover {
-  background: #0052CC;
+  background: #D97706;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.45);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.5);
 }
 
 /* Course Selection Button Group */
@@ -3167,7 +3171,7 @@ details.faq-card[open] .faq-answer-pane {
   transform: translateX(-50%);
   width: 960px;
   height: 480px;
-  background: radial-gradient(circle, rgba(49, 94, 251, 0.07) 0%, rgba(25, 197, 232, 0.04) 55%, transparent 72%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(251, 191, 36, 0.04) 55%, transparent 72%);
   pointer-events: none;
   z-index: 0;
 }
@@ -3188,8 +3192,8 @@ details.faq-card[open] .faq-answer-pane {
   margin-left: auto;
   margin-right: auto;
   font-size: 1.15rem;
-  color: #1E3A8A;
-  font-weight: 500;
+  color: #D97706;
+  font-weight: 600;
 }
 
 /* Stats Counter Bar */
@@ -3198,12 +3202,12 @@ details.faq-card[open] .faq-answer-pane {
   align-items: center;
   justify-content: space-around;
   background: #FFFFFF;
-  border: 1.5px solid #DCE6F5;
+  border: 1.5px solid #FDE68A;
   border-radius: 18px;
   padding: 1.25rem 2rem;
   max-width: 920px;
   margin: 0 auto 3.25rem auto;
-  box-shadow: 0 10px 28px rgba(49, 94, 251, 0.06);
+  box-shadow: 0 10px 28px rgba(245, 158, 11, 0.08);
   position: relative;
   z-index: 1;
 }
@@ -3275,22 +3279,22 @@ details.faq-card[open] .faq-answer-pane {
 
 .employed-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 22px 48px rgba(49, 94, 251, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04);
-  border-color: #315EFB;
+  box-shadow: 0 22px 48px rgba(245, 158, 11, 0.2), 0 4px 12px rgba(0, 0, 0, 0.04);
+  border-color: #F59E0B;
 }
 
 .employed-card:hover::before {
-  background: linear-gradient(90deg, #315EFB, #19C5E8);
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
 }
 
 /* Featured / IT Jobs Card */
 .employed-card.featured {
-  border-color: #C7D7FE;
-  box-shadow: 0 14px 38px rgba(49, 94, 251, 0.09);
+  border-color: #FDE68A;
+  box-shadow: 0 14px 38px rgba(245, 158, 11, 0.12);
 }
 
 .employed-card.featured::before {
-  background: linear-gradient(90deg, #315EFB, #19C5E8);
+  background: linear-gradient(90deg, #F59E0B, #FBBF24);
   height: 5px;
 }
 
@@ -3301,18 +3305,18 @@ details.faq-card[open] .faq-answer-pane {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #315EFB;
-  background: #EFF6FF;
-  border: 1px solid #DBEAFE;
+  color: #D97706;
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
   margin-bottom: 1.25rem;
 }
 
 .employed-card.featured .employed-card-tag {
-  color: #1E40AF;
-  background: #DBEAFE;
-  border-color: #93C5FD;
+  color: #B45309;
+  background: #FDE68A;
+  border-color: #FCD34D;
 }
 
 /* Art Image Area */
