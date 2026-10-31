@@ -233,42 +233,33 @@
     }
     .student-card:hover::before { opacity: 1; }
 
-    /* --- Photo with gold laurel wreath --- */
+    /* --- Photo (single layer clean circle) --- */
     .student-photo-wrapper {
       position: relative;
       width: 140px;
       height: 140px;
       margin-bottom: 1.5rem;
       flex-shrink: 0;
-    }
-
-    /* Outer gold glow ring */
-    .student-photo-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: conic-gradient(
-        #B8860B 0deg, #FFD700 40deg, #DAA520 80deg,
-        #B8860B 120deg, #FFD700 160deg, #DAA520 200deg,
-        #B8860B 240deg, #FFD700 280deg, #DAA520 320deg,
-        #B8860B 360deg
-      );
-      z-index: 0;
-      filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.7));
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Photo circle */
     .student-photo {
-      position: absolute;
-      inset: 4px;
-      width: calc(100% - 8px);
-      height: calc(100% - 8px);
+      position: relative;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
       overflow: hidden;
-      z-index: 1;
       border: 3px solid #FFFFFF;
       background: #1A2740;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .student-card:hover .student-photo {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
     }
     .student-photo img {
       width: 100%;
@@ -276,14 +267,6 @@
       object-fit: cover;
       object-position: top center;
       border-radius: 50%;
-    }
-
-    /* Gold laurel wreath SVG positioned around photo */
-    .laurel-wreath {
-      position: absolute;
-      inset: -18px;
-      z-index: 2;
-      pointer-events: none;
     }
 
     /* ----------------------------------------------------------------
@@ -425,9 +408,6 @@
         height: clamp(75px, 22vw, 95px);
         margin-bottom: 0.75rem;
       }
-      .laurel-wreath {
-        inset: -12px;
-      }
       .student-name {
         font-size: clamp(0.78rem, 2.5vw, 0.88rem);
         font-weight: 800;
@@ -491,9 +471,6 @@
         width: 70px;
         height: 70px;
         margin-bottom: 0.6rem;
-      }
-      .laurel-wreath {
-        inset: -9px;
       }
       .student-name {
         font-size: 0.74rem;
@@ -584,35 +561,7 @@
   <main class="students-section">
     <div class="students-grid">
 
-      <!-- Inline SVG laurel wreath reused via symbol -->
-      <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-        <symbol id="laurel" viewBox="0 0 180 180">
-          <!-- Simplified gold laurel wreath drawn with arcs -->
-          <g fill="none" stroke-linecap="round">
-            <!-- Left branch leaves -->
-            <ellipse cx="24" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(-30 24 90)"/>
-            <ellipse cx="18" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(-50 18 74)"/>
-            <ellipse cx="20" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(-70 20 58)"/>
-            <ellipse cx="30" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(-90 30 44)"/>
-            <ellipse cx="44" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(-110 44 34)"/>
-            <ellipse cx="61" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(-130 61 26)"/>
-            <!-- Right branch leaves -->
-            <ellipse cx="156" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(30 156 90)"/>
-            <ellipse cx="162" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(50 162 74)"/>
-            <ellipse cx="160" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(70 160 58)"/>
-            <ellipse cx="150" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(90 150 44)"/>
-            <ellipse cx="136" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(110 136 34)"/>
-            <ellipse cx="119" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(130 119 26)"/>
-            <!-- Bottom bow knot -->
-            <ellipse cx="74"  cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(20 74 170)"/>
-            <ellipse cx="90"  cy="172" rx="8"  ry="5" fill="#DAA520"/>
-            <ellipse cx="106" cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(-20 106 170)"/>
-            <!-- Stem arcs -->
-            <path d="M28 100 Q12 130 50 160" stroke="#C8960C" stroke-width="3" fill="none"/>
-            <path d="M152 100 Q168 130 130 160" stroke="#C8960C" stroke-width="3" fill="none"/>
-          </g>
-        </symbol>
-      </svg>
+      
 
       <!-- ── STUDENT 1 – Akshaya ── -->
       <article class="student-card">
@@ -620,7 +569,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Akshaya-at-sabhan-group-manjeri.png" alt="Akshaya – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Akshaya</h3>
         <p class="student-role">SAP Accountant</p>
@@ -634,7 +582,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Ajmal-at-sabhan-group-manjeri.png" alt="Mohammed Ajmal – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Ajmal</h3>
         <p class="student-role">SAP Accountant</p>
@@ -648,7 +595,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Shahla-Riyana-at-Tax-matters-llp-Perinthalmanna.png" alt="Shahla Riyana – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahla Riyana</h3>
         <p class="student-role">Accountant</p>
@@ -662,7 +608,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Shahna-Bathool-at-Bismi-group.png" alt="Shahna Bathool – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahna Bathool</h3>
         <p class="student-role">Accountant</p>
@@ -676,7 +621,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Ashfin-at-Mayoori-Perinthalmanna.png" alt="Ashfin – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ashfin</h3>
         <p class="student-role">SAP Accountant</p>
@@ -690,7 +634,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Swalih-at-Prudential-auditing-fujaira-uae.png" alt="Salih C – Auditor" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Salih C</h3>
         <p class="student-role">Auditor</p>
@@ -704,7 +647,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Vishnu-at-image-group.png" alt="Vishnu V – Auditor" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Vishnu V</h3>
         <p class="student-role">Auditor</p>
@@ -718,7 +660,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Janani-at-Vidhya-board-studies.png" alt="Janani – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Janani</h3>
         <p class="student-role">Accountant</p>
@@ -732,7 +673,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-office-administrator-Hasna-Jahan-k-at-Indora-interiors.png" alt="Hasna Jahan K – Office Administrator" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Hasna Jahan K</h3>
         <p class="student-role">Office Administrator</p>
@@ -746,7 +686,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-faculty-Rameeza-Parveen-at-cica-institute-perinthalmanna.png" alt="Rameeza Parveen – SAP Faculty" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Rameeza Parveen</h3>
         <p class="student-role">SAP Faculty</p>
@@ -760,7 +699,6 @@
           <div class="student-photo">
             <img src="images/sap/P11-MOHAMMED-THASLEEM-K-P-1.png" alt="Mohammed Thasleem K P – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Thasleem K P</h3>
         <p class="student-role">Accountant</p>
@@ -774,7 +712,6 @@
           <div class="student-photo">
             <img src="images/sap/P8-SHAHANA-V-P-1.png" alt="Shahana V P – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahana V P</h3>
         <p class="student-role">Accountant</p>
@@ -788,7 +725,6 @@
           <div class="student-photo">
             <img src="images/sap/P15-Thafseena-1.png" alt="Thafseena N – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Thafseena N</h3>
         <p class="student-role">Accountant</p>
@@ -802,7 +738,6 @@
           <div class="student-photo">
             <img src="images/sap/P20-SANJID-1.png" alt="Sanjid T – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Sanjid T</h3>
         <p class="student-role">Accountant</p>
@@ -816,7 +751,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Faheem-KT-at-Image-group.png" alt="Faheem K T – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Faheem K T</h3>
         <p class="student-role">SAP Accountant</p>
@@ -830,7 +764,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Falah-vp-at-HCP-India.png" alt="Falah V P – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Falah V P</h3>
         <p class="student-role">SAP Accountant</p>
@@ -844,7 +777,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Midhilaj-at-Chamayam-group.png" alt="Midhilaj – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Midhilaj</h3>
         <p class="student-role">SAP Accountant</p>
@@ -858,7 +790,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Nishana-at-Chamayam-group-Perinthalmanna.png" alt="Nishana – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Nishana</h3>
         <p class="student-role">SAP Accountant</p>
@@ -872,7 +803,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Nuhman-at-ACC-group-malappuram.png" alt="Nuhman – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Nuhman</h3>
         <p class="student-role">SAP Accountant</p>
@@ -886,7 +816,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-sap-accountant-Shahabas-VP-at-v3-Agencies.png" alt="Shahabas V P – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahabas V P</h3>
         <p class="student-role">SAP Accountant</p>
@@ -900,7 +829,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-accountant-Ajmal-at-Aweera-malappuram.png" alt="Ajmal – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ajmal</h3>
         <p class="student-role">Accountant</p>
@@ -914,7 +842,6 @@
           <div class="student-photo">
             <img src="images/sap/sinet-placed-accountant-Mohammed-Asif-Ali-at-Capitol-Enterprizes.png" alt="Mohammed Asif Ali – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Asif Ali</h3>
         <p class="student-role">Accountant</p>
@@ -928,7 +855,6 @@
           <div class="student-photo">
             <img src="images/sap/Abdul-Rauf-C-OMAN.png" alt="Abdul Rauf C – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Abdul Rauf C</h3>
         <p class="student-role">Accountant</p>
@@ -942,7 +868,6 @@
           <div class="student-photo">
             <img src="images/sap/asif-working-UAE.png" alt="Asif – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Asif</h3>
         <p class="student-role">Accountant</p>
@@ -956,7 +881,6 @@
           <div class="student-photo">
             <img src="images/sap/fasil-Accountant.png" alt="Fasil – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Fasil</h3>
         <p class="student-role">Accountant</p>
@@ -970,7 +894,6 @@
           <div class="student-photo">
             <img src="images/sap/P1-MOHAMMED-ARSAL-P-1.png" alt="Mohammed Arsal P – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Arsal P</h3>
         <p class="student-role">SAP Accountant</p>
@@ -984,7 +907,6 @@
           <div class="student-photo">
             <img src="images/sap/P2-Ajmal-Alloor-1.png" alt="Ajmal Alloor – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ajmal Alloor</h3>
         <p class="student-role">Accountant</p>
@@ -998,7 +920,6 @@
           <div class="student-photo">
             <img src="images/sap/P3-FATHIMA-M-1.png" alt="Fathima M – Junior Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Fathima M</h3>
         <p class="student-role">Junior Accountant</p>
@@ -1012,7 +933,6 @@
           <div class="student-photo">
             <img src="images/sap/P5-ASWIN-KRISHNAN-P-1.png" alt="Aswin Krishnan P – SAP FICO Specialist" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Aswin Krishnan P</h3>
         <p class="student-role">SAP FICO Specialist</p>
@@ -1026,7 +946,6 @@
           <div class="student-photo">
             <img src="images/sap/P6-MOHAMMED-FAVAS-T-K-1.png" alt="Mohammed Favas T K – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Favas T K</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1040,7 +959,6 @@
           <div class="student-photo">
             <img src="images/sap/P13-AMeera-pt-M-1.png" alt="Ameera P T – Financial Analyst" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ameera P T</h3>
         <p class="student-role">Financial Analyst</p>
@@ -1054,7 +972,6 @@
           <div class="student-photo">
             <img src="images/sap/P19-AJWAD-1.png" alt="Ajwad – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ajwad</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1068,7 +985,6 @@
           <div class="student-photo">
             <img src="images/sap/S1-UBAIS-1.png" alt="Ubais – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ubais</h3>
         <p class="student-role">Accountant</p>
@@ -1082,7 +998,6 @@
           <div class="student-photo">
             <img src="images/sap/S3-UMMER-1.png" alt="Ummer – Senior Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ummer</h3>
         <p class="student-role">Senior Accountant</p>
@@ -1096,7 +1011,6 @@
           <div class="student-photo">
             <img src="images/sap/S4-RAMEES-1.png" alt="Ramees – Accounts Officer" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ramees</h3>
         <p class="student-role">Accounts Officer</p>
@@ -1110,7 +1024,6 @@
           <div class="student-photo">
             <img src="images/sap/S5-SHAAD-1.png" alt="Shaad – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shaad</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1124,7 +1037,6 @@
           <div class="student-photo">
             <img src="images/sap/S6-Shibili-1.png" alt="Shibili – Financial Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shibili</h3>
         <p class="student-role">Financial Accountant</p>
@@ -1138,7 +1050,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Adarsh-1.png" alt="Adarsh – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Adarsh</h3>
         <p class="student-role">Accountant</p>
@@ -1152,7 +1063,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Anshad-1.png" alt="Anshad – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Anshad</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1166,7 +1076,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Habidheen-1.png" alt="Habidheen – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Habidheen</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1180,7 +1089,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Hashim-1.png" alt="Hashim – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Hashim</h3>
         <p class="student-role">Accountant</p>
@@ -1194,7 +1102,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Jaisal-1.png" alt="Jaisal – Financial Analyst" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Jaisal</h3>
         <p class="student-role">Financial Analyst</p>
@@ -1208,7 +1115,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Javad-1.png" alt="Javad – SAP FICO Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Javad</h3>
         <p class="student-role">SAP FICO Executive</p>
@@ -1222,7 +1128,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Lahan-1.png" alt="Lahan – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Lahan</h3>
         <p class="student-role">Accountant</p>
@@ -1236,7 +1141,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Munavvir-1.png" alt="Munavvir – Accounts Associate" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Munavvir</h3>
         <p class="student-role">Accounts Associate</p>
@@ -1250,7 +1154,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Najmath-1.png" alt="Najmath – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Najmath</h3>
         <p class="student-role">Accountant</p>
@@ -1264,7 +1167,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Niyas-1.png" alt="Niyas – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Niyas</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1278,7 +1180,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Rasalu-1.png" alt="Rasalu – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Rasalu</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1292,7 +1193,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Rinshad-1.png" alt="Rinshad – Financial Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Rinshad</h3>
         <p class="student-role">Financial Accountant</p>
@@ -1306,7 +1206,6 @@
           <div class="student-photo">
             <img src="images/sap/b3-Unais-1.png" alt="Unais – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Unais</h3>
         <p class="student-role">Accountant</p>
@@ -1320,7 +1219,6 @@
           <div class="student-photo">
             <img src="images/sap/CHANJAL-GEORGE.png" alt="Chanjal George – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Chanjal George</h3>
         <p class="student-role">Accountant</p>
@@ -1334,7 +1232,6 @@
           <div class="student-photo">
             <img src="images/sap/DANISH-PT.png" alt="Danish P T – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Danish P T</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1348,7 +1245,6 @@
           <div class="student-photo">
             <img src="images/sap/DILSHAD-MON.png" alt="Dilshad Mon – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Dilshad Mon</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1362,7 +1258,6 @@
           <div class="student-photo">
             <img src="images/sap/HEERA-KRISHNAN.png" alt="Heera Krishnan – Financial Analyst" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Heera Krishnan</h3>
         <p class="student-role">Financial Analyst</p>
@@ -1376,7 +1271,6 @@
           <div class="student-photo">
             <img src="images/sap/Kavya-Sreedharan.png" alt="Kavya Sreedharan – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Kavya Sreedharan</h3>
         <p class="student-role">Accountant</p>
@@ -1390,7 +1284,6 @@
           <div class="student-photo">
             <img src="images/sap/MOHAMMED-SAIFUL-NP.png" alt="Mohammed Saiful N P – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Saiful N P</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1404,7 +1297,6 @@
           <div class="student-photo">
             <img src="images/sap/MUHAMMED-ASHIF-KK.png" alt="Muhammed Ashif K K – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Muhammed Ashif K K</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1418,7 +1310,6 @@
           <div class="student-photo">
             <img src="images/sap/Muhammed-Asil-Midlaj-CK.png" alt="Muhammed Asil Midlaj – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Muhammed Asil Midlaj</h3>
         <p class="student-role">Accountant</p>
@@ -1432,7 +1323,6 @@
           <div class="student-photo">
             <img src="images/sap/MUHAMMED-SHAFEEQ-EB.png" alt="Muhammed Shafeeq E B – Financial Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Muhammed Shafeeq E B</h3>
         <p class="student-role">Financial Accountant</p>
@@ -1446,7 +1336,6 @@
           <div class="student-photo">
             <img src="images/sap/MUHAMMED-SHAHIL-TP.png" alt="Muhammed Shahil T P – SAP FICO Associate" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Muhammed Shahil T P</h3>
         <p class="student-role">SAP FICO Associate</p>
@@ -1460,7 +1349,6 @@
           <div class="student-photo">
             <img src="images/sap/NAJIYA-K.png" alt="Najiya K – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Najiya K</h3>
         <p class="student-role">Accountant</p>
@@ -1474,7 +1362,6 @@
           <div class="student-photo">
             <img src="images/sap/NASEEF-A.png" alt="Naseef A – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Naseef A</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1488,7 +1375,6 @@
           <div class="student-photo">
             <img src="images/sap/NASEEM-DBFM.png" alt="Naseem – Financial Analyst" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Naseem</h3>
         <p class="student-role">Financial Analyst</p>
@@ -1502,7 +1388,6 @@
           <div class="student-photo">
             <img src="images/sap/RASHEEKA.png" alt="Rasheeka – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Rasheeka</h3>
         <p class="student-role">Accountant</p>
@@ -1516,7 +1401,6 @@
           <div class="student-photo">
             <img src="images/sap/RASHEEQAH-NASREEN-K.png" alt="Rasheeqah Nasreen K – Accounts Officer" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Rasheeqah Nasreen K</h3>
         <p class="student-role">Accounts Officer</p>
@@ -1530,7 +1414,6 @@
           <div class="student-photo">
             <img src="images/sap/SAIDUL-VASITH.png" alt="Saidul Vasith – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Saidul Vasith</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1544,7 +1427,6 @@
           <div class="student-photo">
             <img src="images/sap/SAINA-REEM-SAKKEER-M-1.png" alt="Saina Reem Sakkeer – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Saina Reem Sakkeer</h3>
         <p class="student-role">Accountant</p>
@@ -1558,7 +1440,6 @@
           <div class="student-photo">
             <img src="images/sap/SHAHAL-A-V.png" alt="Shahal A V – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahal A V</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1572,7 +1453,6 @@
           <div class="student-photo">
             <img src="images/sap/SHAHALA-NAZRIN-M.png" alt="Shahala Nazrin M – Financial Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahala Nazrin M</h3>
         <p class="student-role">Financial Accountant</p>
@@ -1586,7 +1466,6 @@
           <div class="student-photo">
             <img src="images/sap/SHAKEELA-CK.png" alt="Shakeela C K – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shakeela C K</h3>
         <p class="student-role">Accountant</p>
@@ -1600,7 +1479,6 @@
           <div class="student-photo">
             <img src="images/sap/SHANIF-Got-Job.png" alt="Shanif – SAP Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shanif</h3>
         <p class="student-role">SAP Accountant</p>
@@ -1614,7 +1492,6 @@
           <div class="student-photo">
             <img src="images/sap/YUSARA-P.png" alt="Yusara P – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Yusara P</h3>
         <p class="student-role">Accountant</p>
@@ -1628,7 +1505,6 @@
           <div class="student-photo">
             <img src="images/sap/Anjali-Krishna.png" alt="Anjali Krishna – Accounts Executive" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Anjali Krishna</h3>
         <p class="student-role">Accounts Executive</p>
@@ -1642,7 +1518,6 @@
           <div class="student-photo">
             <img src="images/sap/afnas.png" alt="Afnas – Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Afnas</h3>
         <p class="student-role">Accountant</p>
@@ -1656,7 +1531,6 @@
           <div class="student-photo">
             <img src="images/sap/AYSHA-SHERIN.png" alt="Aysha Sherin – Junior Accountant" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Aysha Sherin</h3>
         <p class="student-role">Junior Accountant</p>

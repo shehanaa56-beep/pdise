@@ -233,42 +233,33 @@
     }
     .student-card:hover::before { opacity: 1; }
 
-    /* --- Photo with gold laurel wreath --- */
+    /* --- Photo (single layer clean circle) --- */
     .student-photo-wrapper {
       position: relative;
       width: 140px;
       height: 140px;
       margin-bottom: 1.5rem;
       flex-shrink: 0;
-    }
-
-    /* Outer gold glow ring */
-    .student-photo-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: conic-gradient(
-        #B8860B 0deg, #FFD700 40deg, #DAA520 80deg,
-        #B8860B 120deg, #FFD700 160deg, #DAA520 200deg,
-        #B8860B 240deg, #FFD700 280deg, #DAA520 320deg,
-        #B8860B 360deg
-      );
-      z-index: 0;
-      filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.7));
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Photo circle */
     .student-photo {
-      position: absolute;
-      inset: 4px;
-      width: calc(100% - 8px);
-      height: calc(100% - 8px);
+      position: relative;
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
       overflow: hidden;
-      z-index: 1;
       border: 3px solid #FFFFFF;
       background: #1A2740;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .student-card:hover .student-photo {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
     }
     .student-photo img {
       width: 100%;
@@ -276,14 +267,6 @@
       object-fit: cover;
       object-position: top center;
       border-radius: 50%;
-    }
-
-    /* Gold laurel wreath SVG positioned around photo */
-    .laurel-wreath {
-      position: absolute;
-      inset: -18px;
-      z-index: 2;
-      pointer-events: none;
     }
 
     /* ----------------------------------------------------------------
@@ -425,9 +408,6 @@
         height: clamp(75px, 22vw, 95px);
         margin-bottom: 0.75rem;
       }
-      .laurel-wreath {
-        inset: -12px;
-      }
       .student-name {
         font-size: clamp(0.78rem, 2.5vw, 0.88rem);
         font-weight: 800;
@@ -491,9 +471,6 @@
         width: 70px;
         height: 70px;
         margin-bottom: 0.6rem;
-      }
-      .laurel-wreath {
-        inset: -9px;
       }
       .student-name {
         font-size: 0.74rem;
@@ -584,35 +561,7 @@
   <main class="students-section">
     <div class="students-grid">
 
-      <!-- Inline SVG laurel wreath reused via symbol -->
-      <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-        <symbol id="laurel" viewBox="0 0 180 180">
-          <!-- Simplified gold laurel wreath drawn with arcs -->
-          <g fill="none" stroke-linecap="round">
-            <!-- Left branch leaves -->
-            <ellipse cx="24" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(-30 24 90)"/>
-            <ellipse cx="18" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(-50 18 74)"/>
-            <ellipse cx="20" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(-70 20 58)"/>
-            <ellipse cx="30" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(-90 30 44)"/>
-            <ellipse cx="44" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(-110 44 34)"/>
-            <ellipse cx="61" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(-130 61 26)"/>
-            <!-- Right branch leaves -->
-            <ellipse cx="156" cy="90"  rx="11" ry="6" fill="#DAA520" transform="rotate(30 156 90)"/>
-            <ellipse cx="162" cy="74"  rx="11" ry="6" fill="#C8960C" transform="rotate(50 162 74)"/>
-            <ellipse cx="160" cy="58"  rx="11" ry="6" fill="#DAA520" transform="rotate(70 160 58)"/>
-            <ellipse cx="150" cy="44"  rx="11" ry="6" fill="#C8960C" transform="rotate(90 150 44)"/>
-            <ellipse cx="136" cy="34"  rx="11" ry="6" fill="#DAA520" transform="rotate(110 136 34)"/>
-            <ellipse cx="119" cy="26"  rx="11" ry="6" fill="#C8960C" transform="rotate(130 119 26)"/>
-            <!-- Bottom bow knot -->
-            <ellipse cx="74"  cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(20 74 170)"/>
-            <ellipse cx="90"  cy="172" rx="8"  ry="5" fill="#DAA520"/>
-            <ellipse cx="106" cy="170" rx="10" ry="6" fill="#B8860B" transform="rotate(-20 106 170)"/>
-            <!-- Stem arcs -->
-            <path d="M28 100 Q12 130 50 160" stroke="#C8960C" stroke-width="3" fill="none"/>
-            <path d="M152 100 Q168 130 130 160" stroke="#C8960C" stroke-width="3" fill="none"/>
-          </g>
-        </symbol>
-      </svg>
+      
 
       <!-- ── STUDENT 1 – Jaseena P ── -->
       <article class="student-card">
@@ -620,7 +569,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Wipro-Ltd-Chennai-Jaseena.png" alt="Jaseena P – Wipro" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Jaseena P</h3>
         <p class="student-role">Software Engineer</p>
@@ -634,7 +582,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Accenture-Bangalore-Noushad.png" alt="Noushad P – Accenture" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Noushad P</h3>
         <p class="student-role">Software Developer</p>
@@ -648,7 +595,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Nest-Digital-Info Park-Kerala-Khalid.png" alt="Khalid N – Nest Digital" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Khalid N</h3>
         <p class="student-role">Developer</p>
@@ -662,7 +608,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Panacea-Infosec-Delhi-Muhammed-Ajmal-N.png" alt="Ajmal N V – Panacea Infosec" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ajmal N V</h3>
         <p class="student-role">Analyst</p>
@@ -676,7 +621,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Retail-Cloud-Cyber-Park-Kerala-Shifa-Muhammed.png" alt="Shifa Mohamed – Retail Cloud" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shifa Mohamed</h3>
         <p class="student-role">Developer</p>
@@ -690,7 +634,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Williams-Lea-India-Pvt-Ltd-Chennai-Pramod.png" alt="Pramod M – Williams Lea" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Pramod M</h3>
         <p class="student-role">EUC Engineer</p>
@@ -704,7 +647,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Sadek-Elsevedy-industries-UAE-Shahana.png" alt="Shahana – Sadek Elsevedy" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahana</h3>
         <p class="student-role">IT Support</p>
@@ -718,7 +660,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-OPT-IT-Solutions-Bangalore-Sujith.png" alt="Sujith P R – OPT IT Solutions" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Sujith P R</h3>
         <p class="student-role">IT Support</p>
@@ -732,7 +673,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-irsys-softwrae-Jasni-p.png" alt="Jasni P – IRSYS Tech" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Jasni P</h3>
         <p class="student-role">Developer</p>
@@ -746,7 +686,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Infolks-pvt-limited-Pranav.png" alt="Pranav – Infolks India" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Pranav</h3>
         <p class="student-role">NW Admin</p>
@@ -760,7 +699,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-AMANCO-Abu-Dhabi-UAE-Suaad.png" alt="Mohammed Suaad – TAMANCO UAE" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Suaad</h3>
         <p class="student-role">OC Assistant</p>
@@ -774,7 +712,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Apex-uae-Fathima-Hanna.png" alt="Fathima Hanna – APEX RAK UAE" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">M. Fathima Hanna</h3>
         <p class="student-role">IT Support</p>
@@ -788,7 +725,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-AS-VISION-LLC-Dubai-UAE-Fathimath-Naseera.png" alt="Fathimath Naseera – AS Vision Dubai" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Fathimath Naseera</h3>
         <p class="student-role">IT Support</p>
@@ -802,7 +738,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-D24-Dubai-uae-Mohammed-Shiyas-KV.png" alt="Shiyas KV – D24 Marketing Dubai" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shiyas K V</h3>
         <p class="student-role">BD Manager</p>
@@ -816,7 +751,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Iberr-Technology-Kerala-Haritha.png" alt="Haritha KB – Iberr Technology" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Haritha K B</h3>
         <p class="student-role">SEO Analyst</p>
@@ -830,7 +764,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Techzera-infologics-Thasmina-C.png" alt="Thasmina C – Techzera InfoLogics" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Thasmina C</h3>
         <p class="student-role">Software Developer</p>
@@ -844,7 +777,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-ar-Renova-innovative-cloud-Mohammed-fasil-k.png" alt="Mohammed Fasil K – Renova Cloud" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Mohammed Fasil K</h3>
         <p class="student-role">Software Developer</p>
@@ -858,7 +790,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Dusseldorf-Germany-Femina.png" alt="Femina K – Dusseldorf Germany" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Femina K</h3>
         <p class="student-role">Software Trainer</p>
@@ -872,7 +803,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Global-info-Rashin-CK.png" alt="Rashin CK – Global Info" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Rashin C K</h3>
         <p class="student-role">IT Support</p>
@@ -886,7 +816,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Goodwill-English-School-Kerala-Nishma.png" alt="Nishma K – Goodwill English School" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Nishma K</h3>
         <p class="student-role">Coding Teacher</p>
@@ -900,7 +829,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-New-India-Assurance-Aysha-Sherin.png" alt="Aysha Sherin – New India Assurance" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Aysha Sherin</h3>
         <p class="student-role">Tech Assistant</p>
@@ -914,7 +842,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-GTec-Shahar-Banu.png" alt="Shahar Banu – GTech Kerala" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shahar Banu</h3>
         <p class="student-role">Tech Faculty</p>
@@ -928,7 +855,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-at-Infotech-India-Muhammed-fazil-v.png" alt="Fazil V – Info Tech Kerala" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Fazil V</h3>
         <p class="student-role">Security Engineer</p>
@@ -942,7 +868,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Python-Developer-at-Rainhope-Mohammed-Anshif.png" alt="Anshif – Rain Hopes Kerala" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Anshif</h3>
         <p class="student-role">Python Developer</p>
@@ -956,7 +881,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Network-Engineer-at-Abate-Hospital-Ranees-Jasil.png" alt="Ranees Jazil – Abate Hospital" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ranees Jazil</h3>
         <p class="student-role">IT Support Engineer</p>
@@ -970,7 +894,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-IT-Engineer-at-MES-Medical-Collge-Sarath.png" alt="Sarath – MES Medical College" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Sarath</h3>
         <p class="student-role">Network Support</p>
@@ -984,7 +907,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-IT-Support-Engineer-at-Abate-Hospital-Basil-K.png" alt="Basil K – Abate Hospital" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Basil K</h3>
         <p class="student-role">IT Support Engineer</p>
@@ -998,7 +920,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Python-Full-stack-trainer-at-gtec-safwana-jasmin.png" alt="Safwana Jasmin – GTech" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Safwana Jasmin</h3>
         <p class="student-role">Python FS Faculty</p>
@@ -1012,7 +933,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-IT-support-NIMS-hospital-Rasal.png" alt="Rasal Anwar – NIMS Kerala" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Rasal Anwar</h3>
         <p class="student-role">IT Support Engineer</p>
@@ -1026,7 +946,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-IT-support-NIMS-hospital-Sooraj.png" alt="Sooraj KM – NIMS Kerala" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Sooraj K M</h3>
         <p class="student-role">IT Support Engineer</p>
@@ -1040,7 +959,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Python-Developer-Data-analyst-Ajay-at-Techzera-infologics-Pvt-ltd-Perinthalmanna.png" alt="Ajay KP – Techzera InfoLogics" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ajay K P</h3>
         <p class="student-role">Python Developer</p>
@@ -1054,7 +972,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-C-Sharp-Developer-Data-analyst-SreeRaj-at-Briller-SYS-Coimbatore.png" alt="Sree Raj – BrillerSys Coimbatore" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Sree Raj</h3>
         <p class="student-role">C# Developer</p>
@@ -1068,7 +985,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-IT-support-at-DoBox-Malappuram-Kerala-Shibily.png" alt="Shibily – DoBox Malappuram" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shibily</h3>
         <p class="student-role">IT Support</p>
@@ -1082,7 +998,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-Python-Developer-Data-analyst-Drisya-at-InThings-Pvt-ltd-Perinthalmanna.png" alt="Drisya – InThings Pvt Ltd" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Drisya</h3>
         <p class="student-role">Python Developer</p>
@@ -1096,7 +1011,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-IT-support-at-Lulu-Bangalore-Ali-Akbar.png" alt="Ali Akbar – Lulu Bangalore" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Ali Akbar</h3>
         <p class="student-role">IT Support</p>
@@ -1110,7 +1024,6 @@
           <div class="student-photo">
             <img src="images/sinet-placed-IT-support-at-RailTel-India-Kerala-Shamil.png" alt="Shamil – RailTel India Kerala" loading="lazy">
           </div>
-          <svg class="laurel-wreath" viewBox="0 0 180 180" aria-hidden="true"><use href="#laurel"/></svg>
         </div>
         <h3 class="student-name">Shamil</h3>
         <p class="student-role">IT Support</p>
