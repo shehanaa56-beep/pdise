@@ -28,8 +28,8 @@
   
   /* Text Colors */
   --text-dark: #172033;
-  --text-dark-sub: #475569;
-  --text-muted: #64748B;
+  --text-dark-sub: #334155;
+  --text-muted: #475569;
   --text-light: #FFFFFF;
   --text-light-sub: #94A3B8;
   --text-yellow-sub: #FBBF24;
@@ -93,6 +93,40 @@ a {
   transition: var(--transition-fast);
 }
 
+/* Ensure inline links within prose/paragraphs are distinguishable not by color alone */
+p a,
+.connect-terms-notice a,
+.error-desc a,
+.sinet-faq-answer-inner a,
+.sinet-footer-links a,
+.sinet-bottom-links a,
+.cta-helpline-strip a,
+.employed-card-footer a,
+.student-card a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+p a:hover,
+p a:focus,
+.connect-terms-notice a:hover,
+.connect-terms-notice a:focus,
+.sinet-footer-links a:hover,
+.sinet-bottom-links a:hover,
+.cta-helpline-strip a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Focus Visible outlines for keyboard navigation & accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 3px;
+}
+
 button, input, select, textarea {
   font-family: inherit;
 }
@@ -109,10 +143,10 @@ button, input, select, textarea {
   display: inline-block;
   font-family: var(--font-display);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--primary-accent);
+  color: #92400E;
   margin-bottom: 0.75rem;
 }
 
@@ -186,12 +220,14 @@ button, input, select, textarea {
 
 .btn-primary {
   background: var(--primary-accent);
-  color: #FFFFFF;
+  color: #0F172A;
+  font-weight: 700;
   box-shadow: 0 4px 16px var(--primary-accent-glow);
 }
 
 .btn-primary:hover {
-  background: var(--primary-accent-hover);
+  background: var(--secondary-accent);
+  color: #0F172A;
   transform: translateY(-2px);
   box-shadow: 0 6px 22px rgba(245, 158, 11, 0.5);
 }
@@ -217,7 +253,8 @@ button, input, select, textarea {
 
 .btn-outline:hover {
   background: var(--primary-accent);
-  color: #FFFFFF;
+  color: #0F172A;
+  font-weight: 700;
   transform: translateY(-2px);
 }
 
@@ -906,8 +943,8 @@ button, input, select, textarea {
 
 .sinet-hl-subtag {
   font-size: 0.8rem;
-  font-weight: 600;
-  color: #D97706;
+  font-weight: 700;
+  color: #92400E;
 }
 
 .sinet-hl-subtag.light {
@@ -1865,8 +1902,8 @@ details.accordion-item[open] > .accordion-body {
 
 .student-meta .student-course {
   font-size: 0.78rem;
-  color: #D97706;
-  font-weight: 600;
+  color: #92400E;
+  font-weight: 700;
 }
 
 .review-quote {
@@ -2120,7 +2157,7 @@ details.faq-card[open] .faq-answer-pane {
 .sinet-footer-desc {
   font-size: 0.9rem;
   line-height: 1.65;
-  color: #64748B;
+  color: #334155;
   margin-bottom: 1.75rem;
   max-width: 380px;
 }
@@ -2234,8 +2271,9 @@ details.faq-card[open] .faq-answer-pane {
 }
 
 .sinet-email-link {
-  color: #64748B;
-  text-decoration: none;
+  color: #334155;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color 0.2s;
 }
 
@@ -2252,7 +2290,7 @@ details.faq-card[open] .faq-answer-pane {
   justify-content: space-between;
   align-items: center;
   font-size: 0.84rem;
-  color: #64748B;
+  color: #334155;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -2906,7 +2944,7 @@ details.faq-card[open] .faq-answer-pane {
 .connect-eyebrow {
   font-size: 0.75rem;
   font-weight: 800;
-  color: #D97706;
+  color: #92400E;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
@@ -2924,7 +2962,7 @@ details.faq-card[open] .faq-answer-pane {
 
 .connect-subtitle {
   font-size: 0.88rem;
-  color: #64748B;
+  color: #334155;
   text-align: center;
   line-height: 1.5;
   margin-bottom: 1.5rem;
@@ -3017,14 +3055,15 @@ details.faq-card[open] .faq-answer-pane {
 
 .connect-terms-notice {
   font-size: 0.75rem;
-  color: #64748B;
+  color: #334155;
   line-height: 1.45;
   margin-bottom: 1.5rem;
 }
 
 .connect-terms-notice a {
-  color: #D97706;
+  color: #92400E;
   text-decoration: underline;
+  font-weight: 600;
 }
 
 .connect-buttons-row {
@@ -3054,7 +3093,7 @@ details.faq-card[open] .faq-answer-pane {
 .btn-connect-next {
   background: #F59E0B;
   border: none;
-  color: #FFFFFF;
+  color: #0F172A;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1rem;
@@ -3070,7 +3109,8 @@ details.faq-card[open] .faq-answer-pane {
 }
 
 .btn-connect-next:hover {
-  background: #D97706;
+  background: #FBBF24;
+  color: #0F172A;
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(245, 158, 11, 0.5);
 }
@@ -3192,8 +3232,8 @@ details.faq-card[open] .faq-answer-pane {
   margin-left: auto;
   margin-right: auto;
   font-size: 1.15rem;
-  color: #D97706;
-  font-weight: 600;
+  color: #92400E;
+  font-weight: 700;
 }
 
 /* Stats Counter Bar */
@@ -3230,7 +3270,7 @@ details.faq-card[open] .faq-answer-pane {
   display: block;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #64748B;
+  color: #334155;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 0.25rem;
@@ -3302,10 +3342,10 @@ details.faq-card[open] .faq-answer-pane {
 .employed-card-tag {
   align-self: flex-start;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #D97706;
+  color: #92400E;
   background: #FEF3C7;
   border: 1px solid #FDE68A;
   padding: 0.3rem 0.8rem;
@@ -3314,7 +3354,7 @@ details.faq-card[open] .faq-answer-pane {
 }
 
 .employed-card.featured .employed-card-tag {
-  color: #B45309;
+  color: #78350F;
   background: #FDE68A;
   border-color: #FCD34D;
 }
